@@ -3,7 +3,9 @@ header.header
 		a.header-top__logo(href="/")
 			img(src="assets/images/logo.svg", alt="")
 		.header-top-menu
-			img(src="assets/images/burger.svg", alt="")
+			button.hamburger.hamburger--collapse(type="button")
+				span.hamburger-box
+					span.hamburger-inner
 			span Меню
 		.header-top-links
 			a.header-top-links__item(href="#") Все объекты
@@ -13,3 +15,25 @@ header.header
 			span пн-вс с 9<sup>00</sup> до 21<sup>00</sup>
 		.header-top-btn
 			a.header-top-btn__link(href="#") Записаться на просмотр
+	.header-menu
+		.header-menu-item
+			a.header-menu-item__link(href="#") Новости
+			a.header-menu-item__link(href="#") Акции
+			a.header-menu-item__link(href="#") О компании
+			a.header-menu-item__link(href="#") Контакты
+		.header-menu-item
+			a.header-menu-item__link(href="#") Как купить дом
+			a.header-menu-item__link(href="#") Что нужно знать при покупке
+			a.header-menu-item__link(href="#") Способы оплаты
+			a.header-menu-item__link(href="#") Где посмотреть
+		.header-menu-item
+			a.header-menu-item__link(href="#") СМИ о
+			a.header-menu-item__link(href="#") Партнеры
+			a.header-menu-item__link(href="#") Для инвесторов
+		.header-menu-item
+			a.header-menu-item-socials(href="#")
+				img(src="assets/images/socials-vk.svg", alt="")
+			a.header-menu-item-socials(href="#")
+				img(src="assets/images/socials-inst.svg", alt="")
+			a.header-menu-item-socials(href="#")
+				img(src="assets/images/socials-fb.svg", alt="")

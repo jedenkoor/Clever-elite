@@ -1,0 +1,199 @@
+.main{
+	font-family: 'Roboto Condensed', sans-serif;
+	&-banner{
+		margin-top: -100px;
+		position: relative;
+		@include pad(bottom, cyan);
+		&-slider{
+			&-item{
+				height: calc(100vh - 130px);
+			}
+			.slick-dots{
+				width: auto;
+				bottom: auto;
+				top: 50%;
+				display: flex;
+				flex-direction: column;
+				transform: translateY(-50%);
+				right: 150px;
+				li{
+					width: 8px;
+					height: 8px;
+					background: #C3C3C3;
+					margin: 11px 0;
+					&.slick-active{
+						background: #D9C892;
+					}
+					button{
+						display: none;
+					}
+				}
+			}
+			
+		}
+		&-current{
+			position: absolute;
+			top: calc(50% - 65px);
+			right: 139px;
+		}
+		&-content{
+			position: absolute;
+			top: 30%;
+			left: 10%;
+			max-width: 550px;
+			&__subtitle{
+				font-size: 18px;
+				@include pad(bottom, red);
+				text-transform: uppercase;
+			}
+			&__title{
+				font-size: 48px;
+				font-weight: normal;
+				margin: 0;
+				line-height: 48px;
+				text-transform: uppercase;
+				@include pad(bottom, grey);
+			}
+			&-btn{
+				display: inline-block;
+				&__link{
+					text-transform: initial;
+					width: 186px;
+					height: 40px;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					background: #fff;
+					font-size: 18px;
+					&:after{
+						content: '';
+						display: inline-block;
+						width: 5px;
+						height: 10px;
+						background: url('../images/btn-arr.svg') center no-repeat;
+						margin-left: 8px;
+						margin-top: 2px;
+					}
+				}
+				@media screen and (min-width: 1365px){
+					&:hover .main-banner-content-btn__link{
+						transform: translateY(-3px);
+						box-shadow: 0px 4px 20px rgba(255, 255, 255, 0.8);
+					}
+					&:active .main-banner-content-btn__link{
+						transform: translateY(0);
+						box-shadow: inset 0px 4px 20px rgba(0, 0, 0, 0.25);
+					}
+				}
+			}
+		}
+	}
+	&-tabs{
+		max-width: 1160px;
+		margin: 0 auto 100px;
+		&-navigation{
+			display: flex;
+			align-items: flex-end;
+			position: relative;
+			height: 26px;
+			@include pad(bottom, red);
+			&:before{
+				content: '';
+				width: 39px;
+				height: 3px;
+				background: #D9C892;
+				position: absolute;
+				left: -60px;
+				top: 50%;
+				transform: translateY(-50%);
+			}
+			&__item{
+				font-weight: 300;
+				font-size: 24px;
+				text-transform: uppercase;
+				color: #6F8090;
+				margin-right: 80px;
+				line-height: 20px;
+				transition: 0.3s;
+				&.selected{
+					font-weight: normal;
+					font-size: 36px;
+					color: #000000;
+					transition: 0.3s;
+				}
+				@media screen and (min-width: 1365px){
+					&:hover{
+						color: #1E1E1E;
+					}
+				}
+			}
+		}
+		&-tab{
+			&-slider{
+				max-width: 1045px;
+				margin: 0 -10px;
+				.slick-list{
+					padding-top: 4px;
+				}
+				.slick-arrow.slick-disabled{
+					display: none!important;
+				}
+				.slick-arrow{
+					width: 30px;
+					height: 60px;
+					top: calc(50% - 31px);
+					background: url('../images/main-tabs-arr-color.svg') center no-repeat;
+					&:before{
+						display: none;
+					}
+				}
+				.slick-next {
+					right: -48px;
+				}
+				.slick-prev {
+					left: -40px;
+					transform: rotate(180deg) translate(0, 50%);
+				}
+				&-wrap{
+					margin: 0 10px;
+				}
+				&-item{
+					display: flex;
+					flex-direction: column;
+					justify-content: space-between;
+					img{
+						transition: .5s;
+						@include pad(bottom, red);
+					}
+					&__title{
+						opacity: 0;
+						font-weight: 300;
+						font-size: 14px;
+						line-height: 21px;
+						text-transform: uppercase;
+						color: #1B1B24;
+						transition: .5s;
+						transition-delay: .2s;
+						animation: tadaa 0.3s normal forwards ease-in-out;
+						animation-iteration-count: 1;
+						animation-delay: 0.1s;
+					}
+					@media screen and (min-width: 1365px){
+						&:hover{
+							img{
+								transform: translateY(-4px);
+								transition: .5s;
+								box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+							}
+							.main-tabs-tab-slider-item__title{
+								transform: translateY(-4px);
+								transition: .5s;
+    						transition-delay: .2s;
+							}
+						} 
+					}
+				}
+			}
+		}
+	}
+}

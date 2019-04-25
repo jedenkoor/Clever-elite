@@ -1,9 +1,21 @@
+@keyframes tadaa{
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
 .header{
 	font-family: 'Roboto Condensed', sans-serif;
 	text-transform: uppercase;
 	font-size: 18px;
 	color: #1B1B24;
+	position: relative;
+	z-index: 1;
 	&-top{
+		position: relative;
+		z-index: 3;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
@@ -12,9 +24,30 @@
 			display: flex;
 			align-items: center;
 			cursor: pointer;
-			img{
-				margin-right: 10px;
-				margin-top: -2px;
+			.hamburger--collapse.is-active .hamburger-inner{
+				top: 19px;
+				transition: 0.3s;
+			}
+			.hamburger{
+				padding: 10px;
+			}
+			.hamburger:hover {
+				opacity: 1;
+			}
+			.hamburger-inner, .hamburger-inner:after, .hamburger-inner:before{
+				width: 17px;
+				height: 1px;
+				transition: 0.3s;
+			}
+			.hamburger-inner:before {
+				top: -6px;
+			}
+			.hamburger-inner:after {
+				top: -12px;
+			}
+			.hamburger-box {
+				width: 17px;
+				height: 14px;
 			}
 		}
 		&-links{
@@ -66,6 +99,45 @@
 					transform: translateY(0);
 					box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
 				}
+			}
+		}
+	}
+	&-menu{
+		position: absolute;
+		width: 100%;
+		z-index: 2;
+		background: #fff;
+		padding: 140px 20px 20px;
+		display: none;
+		justify-content: space-between;
+		&-item{
+			opacity: 0;
+			width: 25%;
+			margin-bottom: 10px;
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			&:last-child{
+				width: auto;
+			}
+			&__link{
+				line-height: 21px;
+				@include pad(bottom, blue);
+			}
+			&-socials{
+				display: block;
+				@include pad(bottom, red);
+			}
+		}
+		&.active{
+			display: flex;
+			top: calc(100% - 100px);
+		}
+		&.fadeInDown{
+			& .header-menu-item{
+				animation: tadaa 0.5s normal forwards ease-in-out;
+				animation-iteration-count: 1;
+				animation-delay: 0.3s;
 			}
 		}
 	}

@@ -4,4 +4,69 @@ block variables
 	- var title = 'Главная'
 
 block content
-	
+	.main
+		.main-banner
+			.main-banner-slider
+				.main-banner-slider-item(style="background: url('assets/images/banner.jpg') left top no-repeat; background-size: cover")
+				.main-banner-slider-item(style="background: url('assets/images/banner.jpg') left top no-repeat; background-size: cover")
+				.main-banner-slider-item(style="background: url('assets/images/banner.jpg') left top no-repeat; background-size: cover")
+			.main-banner-current 1 / 3
+			.main-banner-content
+				.main-banner-content__subtitle Премиальные предложения
+				h1.main-banner-content__title Элитная загородная недвижимость
+				.main-banner-content-btn
+					a.main-banner-content-btn__link(href="#") Узнать больше
+		.main-tabs
+			ul.main-tabs-navigation
+				li
+					a.main-tabs-navigation__item(href="#mainTab1") Акции
+				li
+					a.main-tabs-navigation__item(href="#mainTab2") Новости
+				li
+					a.main-tabs-navigation__item(href="#mainTab3") Клиентам
+			.main-tabs-tab#mainTab1
+				.main-tabs-tab-slider
+					.main-tabs-tab-slider-wrap
+						a.main-tabs-tab-slider-item(href="#")
+							img(src="assets/images/main-tabs-item1.jpg", alt="")
+							.main-tabs-tab-slider-item__title Новое предложение в разделе загородной недвижимости
+					.main-tabs-tab-slider-wrap
+						a.main-tabs-tab-slider-item(href="#")
+							img(src="assets/images/main-tabs-item2.jpg", alt="")
+							.main-tabs-tab-slider-item__title Новое предложение в разделе загородной недвижимости
+					.main-tabs-tab-slider-wrap
+						a.main-tabs-tab-slider-item(href="#")
+							img(src="assets/images/main-tabs-item3.jpg", alt="")
+							.main-tabs-tab-slider-item__title Новое предложение в разделе загородной недвижимости
+					.main-tabs-tab-slider-wrap
+						a.main-tabs-tab-slider-item(href="#")
+							img(src="assets/images/main-tabs-item3.jpg", alt="")
+							.main-tabs-tab-slider-item__title Новое предложение в разделе загородной недвижимости
+			.main-tabs-tab#mainTab2
+				.main-tabs-tab-slider
+					.main-tabs-tab-slider-wrap
+						a.main-tabs-tab-slider-item(href="#")
+							img(src="assets/images/main-tabs-item2.jpg", alt="")
+							.main-tabs-tab-slider-item__title Новое предложение в разделе загородной недвижимости
+					.main-tabs-tab-slider-wrap
+						a.main-tabs-tab-slider-item(href="#")
+							img(src="assets/images/main-tabs-item3.jpg", alt="")
+							.main-tabs-tab-slider-item__title Новое предложение в разделе загородной недвижимости
+					.main-tabs-tab-slider-wrap
+						a.main-tabs-tab-slider-item(href="#")
+							img(src="assets/images/main-tabs-item1.jpg", alt="")
+							.main-tabs-tab-slider-item__title Новое предложение в разделе загородной недвижимости
+			.main-tabs-tab#mainTab3
+				.main-tabs-tab-slider
+					.main-tabs-tab-slider-wrap
+						a.main-tabs-tab-slider-item(href="#")
+							img(src="assets/images/main-tabs-item3.jpg", alt="")
+							.main-tabs-tab-slider-item__title Новое предложение в разделе загородной недвижимости
+					.main-tabs-tab-slider-wrap
+						a.main-tabs-tab-slider-item(href="#")
+							img(src="assets/images/main-tabs-item1.jpg", alt="")
+							.main-tabs-tab-slider-item__title Новое предложение в разделе загородной недвижимости
+					.main-tabs-tab-slider-wrap
+						a.main-tabs-tab-slider-item(href="#")
+							img(src="assets/images/main-tabs-item2.jpg", alt="")
+							.main-tabs-tab-slider-item__title Новое предложение в разделе загородной недвижимости
