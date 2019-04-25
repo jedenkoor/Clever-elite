@@ -6,6 +6,14 @@
 		opacity: 1;
 	}
 }
+@keyframes tadaa-reverse{
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
+}
 .header{
 	font-family: 'Roboto Condensed', sans-serif;
 	text-transform: uppercase;
@@ -58,7 +66,7 @@
 				&:first-child{
 					margin-right: 30px;
 				}
-				@media screen and (min-width: 1365px){
+				@media screen and (min-width: 1200px){
 					&:hover{
 						color: #E09B3D;
 						border-bottom: 1px solid #E09B3D;
@@ -89,8 +97,9 @@
 			justify-content: center;
 			align-items: center;
 			background: #E2C773;
+			transition: 0.3s;
 			}
-			@media screen and (min-width: 1365px){
+			@media screen and (min-width: 1200px){
 				&:hover .header-top-btn__link{
 					transform: translateY(-3px);
 					box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);

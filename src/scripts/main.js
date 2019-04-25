@@ -42,6 +42,13 @@ $(document).ready(function () {
 		$(this).addClass('selected');
 	});
 
+	$('.main-object-slider').slick({
+		slidesToShow: 1,
+		variableWidth: true,
+		focusOnSelect: true,
+		draggable: false		
+	});
+
 	resizewindow();
 	$(window).resize(function(e){
 		resizewindow();
