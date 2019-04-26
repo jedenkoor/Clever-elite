@@ -698,6 +698,7 @@
 		}
 	}
 	&-form{
+		font-family: 'Roboto Condensed', sans-serif;
 		max-width: 1160px;
 		margin: 0 auto 100px;
 		position: relative;
@@ -749,6 +750,12 @@
 								color: #000;
 							}
 						}
+					}
+					&-tab{
+						visibility: hidden;
+					}
+					&-tab#inputEmail{
+						display: none;
 					}
 				}
 				label{

@@ -65,12 +65,12 @@ $(document).ready(function () {
 	});
 
 	var mainFormContainers = $('.main-form-content-right-tabs-tab');
-	mainFormContainers.hide().filter(':first').fadeIn();
+	mainFormContainers.hide().filter(':first').fadeIn().attr('style', 'visibility: visible; display: block;');
 	$('.main-form-content-right-tabs-navigation label').filter(':first').addClass('selected');
 	$('.main-form-content-right-tabs-navigation a').click(function (e) {
 		e.preventDefault();
 		mainFormContainers.hide();
-		mainFormContainers.filter(this.hash).fadeIn();
+		mainFormContainers.filter(this.hash).fadeIn().attr('style', 'visibility: visible; display: block;');
 		$('.main-form-content-right-tabs-navigation label').removeClass('selected');
 		$(this).find('label').addClass('selected');
 	});

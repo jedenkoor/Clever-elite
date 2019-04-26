@@ -38,6 +38,33 @@
         <div class="sait-map">
           <nav class="sait-map-menu"><a class="sait-map-menu__item" href="index.html">Главная</a></nav>
         </div>
+        <div class="main-form">
+          <div class="main-form__title">Связаться с нами</div>
+          <div class="main-form-content">
+            <div class="main-form-content-left"><img src="assets/images/main-form.png" alt=""></div>
+            <form class="main-form-content-right" action="#">
+              <div class="main-form-content-right__title">Отправьте заявку и мы свяжимся с Вами</div>
+              <div class="main-form-content-right-pair">
+                <label for="name">Имя</label>
+                <input type="text" placeholder="Иван Иванов" name="name" data-required>
+              </div>
+              <div class="main-form-content-right-tabs">
+                <div class="main-form-content-right-tabs-navigation"><a href="#inputTel">
+                    <label for="tel">Телефон</label></a><a href="#inputEmail">
+                    <label for="email">E-mail</label></a></div>
+                <div class="main-form-content-right-tabs-tab" id="inputTel">
+                  <input type="tel" placeholder="+7 (900) 000-00-00" name="tel">
+                </div>
+                <div class="main-form-content-right-tabs-tab" id="inputEmail">
+                  <input type="text" placeholder="ivanov@abc.ru" name="email">
+                </div>
+              </div><span>Отправляя форму Вы соглашаетесь <a href="#">на обработку данных</a></span>
+              <div class="main-form-content-right-btn">
+                <button class="main-form-content-right-btn__link" type="submit">Отправить</button>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
       <footer class="footer">
         <div class="footer-top">
