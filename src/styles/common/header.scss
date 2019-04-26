@@ -132,6 +132,14 @@
 			&__link{
 				line-height: 21px;
 				@include pad(bottom, blue);
+				@media screen and (min-width: 1200px){
+					&:hover{
+						color: #E09B3D;
+					}
+					&:active{
+						color: #A96B16;
+					}
+				}
 			}
 			&-socials{
 				display: block;
