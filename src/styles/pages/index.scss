@@ -99,7 +99,6 @@
 	&-tabs{
 		max-width: 1160px;
 		margin: 0 auto 100px;
-		max-height: 360px;
 		&-navigation{
 			display: flex;
 			align-items: flex-end;
@@ -138,10 +137,17 @@
 			}
 		}
 		&-tab{
+			max-height: 314px;
+			overflow: hidden;
+			display: none;
+			&#mainTab1{
+				display: block;
+			}
 			&-slider{
 				max-width: 1045px;
 				margin: 0 -10px;
 				opacity: 0;
+				transition: 0.3s;
 				&.slick-initialized{
 					opacity: 1;
 				}
