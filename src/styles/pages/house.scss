@@ -1,0 +1,93 @@
+.house{
+	font-family: 'Roboto Condensed', sans-serif;
+	&-banner{
+		margin-top: -100px;
+		position: relative;
+		&.white{
+			.house-banner-content__title,
+			.house-banner-current{
+				color: #fff;
+			}
+		}
+		@include pad(bottom, cyan);
+		&-slider{
+			height: calc(100vh - 130px);
+			overflow: hidden;
+			transition: 0.3s;
+			opacity: 0;
+			animation: tadaa 0.5s normal forwards ease-in-out;
+			animation-iteration-count: 1;
+			animation-delay: 0.6s;
+			&-item{
+				height: calc(100vh - 130px);
+			}
+			.slick-dots{
+				width: auto;
+				bottom: auto;
+				top: 50%;
+				display: flex;
+				flex-direction: column;
+				transform: translateY(-50%);
+				right: 150px;
+				li{
+					width: 8px;
+					height: 8px;
+					background: #C3C3C3;
+					margin: 11px 0;
+					&.slick-active{
+						background: #D9C892;
+					}
+					button{
+						display: none;
+					}
+				}
+			}
+			
+		}
+		&-current{
+			position: absolute;
+			top: calc(50% - 65px);
+			right: 139px;
+		}
+		&-content{
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			left: 10%;
+			max-width: 550px;
+			&__title{
+				font-size: 48px;
+				font-weight: normal;
+				margin: 0;
+				line-height: 48px;
+				text-transform: uppercase;
+				@include pad(bottom, grey);
+			}
+			&-btn{
+				display: inline-block;
+				&__link{
+					text-transform: initial;
+					width: 217px;
+					height: 40px;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					background: #fff;
+					font-weight: 300;
+					font-size: 18px;
+					transition: 0.3s;
+				}
+				@media screen and (min-width: 1200px){
+					&:hover .house-banner-content-btn__link{
+						transform: translateY(-3px);
+						box-shadow: 0px 4px 20px rgba(255, 255, 255, 0.8);
+					}
+					&:active .house-banner-content-btn__link{
+						transform: translateY(0);
+						box-shadow: inset 0px 4px 20px rgba(0, 0, 0, 0.25);
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,5 +1,13 @@
 $(document).ready(function () {
 
+	if(document.title == 'Главная' || document.title == 'Карта'){
+		$(document).find('.breadcrumbs').attr('style', 'display: none;');
+	}
+	if(document.title == 'Дом'){
+		$(document).find('.header').addClass('white');
+		$(document).find('.house-banner').addClass('white');
+	}
+
 	$(document).find('.main-banner-slider').slick({
 		dots: true,
 		infinite: true,
@@ -20,6 +28,27 @@ $(document).ready(function () {
 		var i = (currentSlide ? currentSlide : 0) + 1;
 		$status.text(i + ' / ' + slick.slideCount);
 	});
+
+	/*$(document).find('.house-banner-slider').slick({
+		dots: true,
+		infinite: true,
+		speed: 800,
+		fade: true,
+		cssEase: 'linear',
+		autoplay: true,
+		autoplaySpeed: 3000,
+		pauseOnHover: false,
+		draggable: false,
+		swipe: false,
+		lazyLoad: 'progressive'
+	});
+	var $status = $('.house-banner-current');
+	var $slickElement = $('.house-banner-slider');
+	$slickElement.on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
+		//currentSlide is undefined on init -- set it to 0 in this case (currentSlide is 0 based)
+		var i = (currentSlide ? currentSlide : 0) + 1;
+		$status.text(i + ' / ' + slick.slideCount);
+	});*/
 
 	var mainTabContainers = $('.main-tabs-tab');
 	mainTabContainers.hide().filter(':first').fadeIn('slow');
@@ -75,17 +104,6 @@ $(document).ready(function () {
 		$(this).find('label').addClass('selected');
 	});
 
-	let feed = new Instafeed({
-		get: 'user',
-		userId: '2215809475', /*https://codeofaninja.com/tools/find-instagram-user-id*/
-		accessToken: '2215809475.f3c5285.5061b5f75408449b917c36fb1c4fa89d', /*https://www.youtube.com/watch?time_continue=70&v=fGMk8daxF08*/
-		resolution: 'standard_resolution',
-		limit: 4,
-		useHttp: 'true',
-		template: '<a data-fancybox class="instafeed-item" data-src="{{link}}" href="javascript:;"><div class="border-1"></div><div class="border-2"></div><div class="border-3"></div><div class="border-4"></div><div class="instafeed-item-top"><div class="instafeed-item-top__logo"></div><div class="instafeed-item-top-info"><div class="instafeed-item-top-info__title">{{model.user.username}}</div><div class="instafeed-item-top-info__loc">{{location}}</div></div><div class="instafeed-item-top__more"></div></div><div class="instafeed-item-photo"><img src="{{image}}"/></div><div class="instafeed-item-bot"><div class="instafeed-item-bot-top"><div class="instafeed-item-bot-top-like"></div><div class="instafeed-item-bot-top-comment"></div><div class="instafeed-item-bot-top-share"></div><div class="instafeed-item-bot-top-fav"></div></div><div class="instafeed-item-bot-likes">{{likes}}<span> likes</span></div><div class="instafeed-item-bot-descr"><span>{{model.caption.from.username}}</span>{{caption}}</div><div class="instafeed-item-bot-dateHidden">{{model.created_time}}</div><div class="instafeed-item-bot-date"></div></div> </a>'
-	});
-	feed.run();
-
 	function timeConverter(UNIX_timestamp){
 		var a = new Date(UNIX_timestamp * 1000);
 		var months = ['Января','Февраля','Марта','Апреля','Мая','Июня','Июля','Августа','Сентября','Октября','Ноября','Декабря'];
@@ -96,32 +114,45 @@ $(document).ready(function () {
 		return time;
 	}
 
-	var initialSlick = function(allmutations){
-    // allmutations — массив, и мы можем использовать соответствующие методы JavaScript.
-    allmutations.map( function(mr){
-			if( !$(document).find('#instafeed').hasClass('slick-initialized') ){
-				$(document).find('#instafeed').slick({
-					slidesToShow: 4,
-					slidesToScroll: 1
-				});
-				let dateHidden = $(document).find('.instafeed-item-bot-dateHidden');
-				let dateShow = $(document).find('.instafeed-item-bot-date');
-				for (let i = 0; i < dateHidden.length; i++) {
-					dateShow.eq(i).text( timeConverter( dateHidden.eq(i).text() ) );
+	if( $(document).find('#instafeed').length != 0 ){
+		let feed = new Instafeed({
+			get: 'user',
+			userId: '5620778715', /*https://codeofaninja.com/tools/find-instagram-user-id*/
+			accessToken: '5620778715.0dde584.3cb1d3f5b1c24725b9c36b9e82cecf66', /*https://www.youtube.com/watch?time_continue=70&v=fGMk8daxF08*/
+			resolution: 'standard_resolution',
+			limit: 4,
+			useHttp: 'true',
+			template: '<a data-fancybox class="instafeed-item" data-src="{{link}}" href="javascript:;"><div class="border-1"></div><div class="border-2"></div><div class="border-3"></div><div class="border-4"></div><div class="instafeed-item-top"><div class="instafeed-item-top__logo"></div><div class="instafeed-item-top-info"><div class="instafeed-item-top-info__title">{{model.user.username}}</div><div class="instafeed-item-top-info__loc">{{location}}</div></div><div class="instafeed-item-top__more"></div></div><div class="instafeed-item-photo"><img src="{{image}}"/></div><div class="instafeed-item-bot"><div class="instafeed-item-bot-top"><div class="instafeed-item-bot-top-like"></div><div class="instafeed-item-bot-top-comment"></div><div class="instafeed-item-bot-top-share"></div><div class="instafeed-item-bot-top-fav"></div></div><div class="instafeed-item-bot-likes">{{likes}}<span> likes</span></div><div class="instafeed-item-bot-descr"><span>{{model.caption.from.username}}</span>{{caption}}</div><div class="instafeed-item-bot-dateHidden">{{model.created_time}}</div><div class="instafeed-item-bot-date"></div></div> </a>'
+		});
+		feed.run();
+
+		var initialSlick = function(allmutations){
+			// allmutations — массив, и мы можем использовать соответствующие методы JavaScript.
+			allmutations.map( function(mr){
+				if( !$(document).find('#instafeed').hasClass('slick-initialized') ){
+					$(document).find('#instafeed').slick({
+						slidesToShow: 4,
+						slidesToScroll: 1
+					});
+					let dateHidden = $(document).find('.instafeed-item-bot-dateHidden');
+					let dateShow = $(document).find('.instafeed-item-bot-date');
+					for (let i = 0; i < dateHidden.length; i++) {
+						dateShow.eq(i).text( timeConverter( dateHidden.eq(i).text() ) );
+					}
+					$(document).find('.main-inst-btn__link').attr( 'href', 'https://www.instagram.com/' + $(document).find('.instafeed-item-top-info__title').eq(0).text() );
 				}
-				$(document).find('.main-inst-btn__link').attr( 'href', 'https://www.instagram.com/' + $(document).find('.instafeed-item-top-info__title').eq(0).text() );
-			}
-    });
-},
-initialSlickElement = document.querySelectorAll('#instafeed')[0],
-initialSlickObserver = new MutationObserver(initialSlick),
-initialSlickOptions = {
-    // обязательный параметр: наблюдаем за добавлением и удалением дочерних элементов.
-    'childList': true,
-    // наблюдаем за добавлением и удалением дочерних элементов любого уровня вложенности.
-    'subtree': true
-}
-initialSlickObserver.observe(initialSlickElement, initialSlickOptions);
+			});
+		},
+		initialSlickElement = document.querySelectorAll('#instafeed')[0],
+		initialSlickObserver = new MutationObserver(initialSlick),
+		initialSlickOptions = {
+				// обязательный параметр: наблюдаем за добавлением и удалением дочерних элементов.
+				'childList': true,
+				// наблюдаем за добавлением и удалением дочерних элементов любого уровня вложенности.
+				'subtree': true
+		}
+		initialSlickObserver.observe(initialSlickElement, initialSlickOptions);
+	}
 
 	resizewindow();
 	$(window).resize(function(e){
@@ -134,8 +165,14 @@ $(document).on('click', '.header-top-menu', function (e) {
 	$(document).find('.header-menu').addClass('active fadeInDown animated');
 	if ($(this).find('.hamburger').hasClass('is-active')) {
 		$(document).find('.header-menu').removeClass('fadeInDown');
+		if ( $('.header').hasClass('white') ) {
+			$(document).find('.header').removeClass('white-menu');
+		}
 		$(document).find('.header-menu').addClass('fadeOutUp');
 	} else {
+		if ( $('.header').hasClass('white') ) {
+			$(document).find('.header').addClass('white-menu');
+		}
 		$(document).find('.header-menu').removeClass('fadeOutUp');
 	}
 	$(this).find('.hamburger').toggleClass('is-active');
@@ -146,6 +183,9 @@ $(document).on('click', function (e) {
 		return false;
 	}
 	if ( div.hasClass('fadeInDown') && !div.is(e.target) && div.has(e.target).length === 0) {
+		if ( $('.header').hasClass('white') ) {
+			$(document).find('.header').removeClass('white-menu');
+		}
 		div.removeClass('fadeInDown');
 		div.addClass('fadeOutUp');
 		$(document).find('.hamburger').removeClass('is-active');
