@@ -29,7 +29,7 @@ $(document).ready(function () {
 		$status.text(i + ' / ' + slick.slideCount);
 	});
 
-	/*$(document).find('.house-banner-slider').slick({
+	let houseSlider = $(document).find('.house-banner-slider').slick({
 		dots: true,
 		infinite: true,
 		speed: 800,
@@ -47,8 +47,14 @@ $(document).ready(function () {
 	$slickElement.on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
 		//currentSlide is undefined on init -- set it to 0 in this case (currentSlide is 0 based)
 		var i = (currentSlide ? currentSlide : 0) + 1;
-		$status.text(i + ' / ' + slick.slideCount);
-	});*/
+		$status.html('<span>' + i + '</span> / ' + slick.slideCount);
+	});
+	$(document).on('click', '.house-banner-info-items-arrPrev', function (e) {
+		houseSlider.slick('slickPrev');
+	});
+	$(document).on('click', '.house-banner-info-items-arrNext', function (e) {
+		houseSlider.slick('slickNext');
+	});
 
 	var mainTabContainers = $('.main-tabs-tab');
 	mainTabContainers.hide().filter(':first').fadeIn('slow');
@@ -71,6 +77,32 @@ $(document).ready(function () {
 			lazyLoad: 'progressive'
 		});
 		$('.main-tabs-navigation__item').removeClass('selected');
+		$(this).addClass('selected');
+	});
+
+	var houseTabContainers = $('.house-tabs-tab');
+	houseTabContainers.hide().filter(':first').fadeIn('slow');
+	$('.house-tabs-navigation__item').filter(':first').addClass('selected');
+	$('.house-tabs-tab-right-slider-inn').filter(':first').slick({
+		draggable: false,
+		swipe: false,
+		arrows: false,
+		lazyLoad: 'progressive',
+		fade: true
+	});
+	$('.house-tabs-navigation__item').click(function (e) {
+		e.preventDefault();
+		houseTabContainers.hide();
+		houseTabContainers.filter(this.hash).fadeIn('slow');
+		$('.house-tabs-tab-right-slider-inn.slick-initialized').slick('unslick');
+		houseTabContainers.filter(this.hash).find('.house-tabs-tab-right-slider-inn').slick({
+			draggable: false,
+			swipe: false,
+			lazyLoad: 'progressive',
+			arrows: false,
+			fade: true
+		});
+		$('.house-tabs-navigation__item').removeClass('selected');
 		$(this).addClass('selected');
 	});
 
@@ -191,6 +223,13 @@ $(document).on('click', function (e) {
 		$(document).find('.hamburger').removeClass('is-active');
 	}
 });
+
+$(document).on('click', '.house-tabs-tab-right-slider-nav-item', function (e) {
+	$(this).siblings('.house-tabs-tab-right-slider-nav-item').removeClass('selected');
+	$(this).closest('.house-tabs-tab-right-slider-nav').siblings('.house-tabs-tab-right-slider-inn').slick('slickGoTo', $(this).index());
+	$(this).addClass('selected');
+});
+
 
 $(window).scroll(function() {
 	
