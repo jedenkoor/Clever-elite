@@ -81,7 +81,7 @@ $(document).ready(function () {
 	});
 
 	var houseTabContainers = $('.house-tabs-tab');
-	houseTabContainers.hide().filter(':first').fadeIn('slow');
+	houseTabContainers.hide().filter(':first').fadeIn('slow').attr('style', 'visibility: visible;');
 	$('.house-tabs-navigation__item').filter(':first').addClass('selected');
 	$('.house-tabs-tab-right-slider-inn').filter(':first').slick({
 		draggable: false,
@@ -106,6 +106,32 @@ $(document).ready(function () {
 		$(this).addClass('selected');
 	});
 
+	var houseGalleryContainers = $('.house-gallery-main-tab');
+	houseGalleryContainers.hide().filter(':first').fadeIn('slow').attr('style', 'visibility: visible;');
+	$('.house-gallery-main-navigation__item').filter(':first').addClass('selected');
+	$('.house-gallery-main-tab-right-slider').filter(':first').slick({
+		arrows: false,
+		lazyLoad: 'progressive'
+	});
+	$('.house-gallery-main-navigation__item').click(function (e) {
+		e.preventDefault();
+		houseGalleryContainers.hide();
+		houseGalleryContainers.filter(this.hash).fadeIn('slow');
+		$('.house-gallery-main-tab-right-slider.slick-initialized').slick('unslick');
+		houseGalleryContainers.filter(this.hash).find('.house-gallery-main-tab-right-slider').slick({
+			arrows: false,
+			lazyLoad: 'progressive'
+		});
+		$('.house-gallery-main-navigation__item').removeClass('selected');
+		$(this).addClass('selected');
+	});
+	$(document).on('click', '.house-gallery-main-tab-right-arrows-arrPrev', function (e) {
+		$(this).closest('.house-gallery-main-tab-right').find('.house-gallery-main-tab-right-slider').slick('slickPrev');
+	});
+	$(document).on('click', '.house-gallery-main-tab-right-arrows-arrNext', function (e) {
+		$(this).closest('.house-gallery-main-tab-right').find('.house-gallery-main-tab-right-slider').slick('slickNext');
+	});
+
 	$('.main-object-slider').slick({
 		slidesToShow: 1,
 		variableWidth: true,
@@ -125,14 +151,24 @@ $(document).ready(function () {
 		showMaskOnFocus: true
 	});
 
-	var mainFormContainers = $('.main-form-content-right-tabs-tab');
+	var mainFormContainers = $('.main-form .main-form-content-right-tabs-tab');
 	mainFormContainers.hide().filter(':first').fadeIn().attr('style', 'visibility: visible; display: block;');
-	$('.main-form-content-right-tabs-navigation label').filter(':first').addClass('selected');
-	$('.main-form-content-right-tabs-navigation a').click(function (e) {
+	$('.main-form .main-form-content-right-tabs-navigation label').filter(':first').addClass('selected');
+	$('.main-form .main-form-content-right-tabs-navigation a').click(function (e) {
 		e.preventDefault();
 		mainFormContainers.hide();
 		mainFormContainers.filter(this.hash).fadeIn().attr('style', 'visibility: visible; display: block;');
-		$('.main-form-content-right-tabs-navigation label').removeClass('selected');
+		$('.main-form .main-form-content-right-tabs-navigation label').removeClass('selected');
+		$(this).find('label').addClass('selected');
+	});
+	var mainManagerContainers = $('.house-manager .main-form-content-right-tabs-tab');
+	mainManagerContainers.hide().filter(':first').fadeIn().attr('style', 'visibility: visible; display: block;');
+	$('.house-manager .main-form-content-right-tabs-navigation label').filter(':first').addClass('selected');
+	$('.house-manager .main-form-content-right-tabs-navigation a').click(function (e) {
+		e.preventDefault();
+		mainManagerContainers.hide();
+		mainManagerContainers.filter(this.hash).fadeIn().attr('style', 'visibility: visible; display: block;');
+		$('.house-manager .main-form-content-right-tabs-navigation label').removeClass('selected');
 		$(this).find('label').addClass('selected');
 	});
 
