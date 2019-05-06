@@ -11,6 +11,10 @@ $(document).ready(function () {
 	if(document.title == 'Новости' || document.title == 'Карта'){
 		$(document).find('.main-form').attr('style', 'display: none;');
 	}
+	if(document.title == 'О компании'){
+		$(document).find('.main-form-content-left img').attr('style', 'display: none;');
+		$(document).find('.main-form-content-left-wrap').attr('style', 'display: block;');
+	}
 
 	$(document).find('.main-banner-slider').slick({
 		dots: true,

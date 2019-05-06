@@ -724,8 +724,11 @@
 			display: flex;
 			&-left{
 				margin-bottom: -30px;
-				width: 497px;
-				height: 423px;
+				&-wrap{
+					width: 497px;
+					height: 423px;
+					display: none;
+				}
 			}
 			&-right{
 				margin-left: 20px;
