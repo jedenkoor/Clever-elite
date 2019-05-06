@@ -6,6 +6,10 @@ $(document).ready(function () {
 	if(document.title == 'Дом'){
 		$(document).find('.header').addClass('white');
 		$(document).find('.house-banner').addClass('white');
+		$(document).find('.breadcrumbs').addClass('breadcrumbs-abs');
+	}
+	if(document.title == 'Новости'){
+		$(document).find('.main-form').attr('style', 'display: none;');
 	}
 
 	$(document).find('.main-banner-slider').slick({
@@ -272,5 +276,12 @@ $(window).scroll(function() {
 });
 
 function resizewindow() {
-	
+	let newsMainImages = $(document).find('.news-main-item__img')
+	for (let i = 0; i < newsMainImages.length; i++) {
+		newsMainImages.eq(i).css('height', $(newsMainImages.eq(i)).closest('.news-main-item').width() * 0.728 + 'px');
+	}
+	let newsRestImages = $(document).find('.news-rest-item__img')
+	for (let i = 0; i < newsRestImages.length; i++) {
+		newsRestImages.eq(i).css('height', $(newsRestImages.eq(i)).closest('.news-rest-item').width() + 'px');
+	}
 };
