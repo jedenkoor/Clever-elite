@@ -8,7 +8,7 @@ $(document).ready(function () {
 		$(document).find('.house-banner').addClass('white');
 		$(document).find('.breadcrumbs').addClass('breadcrumbs-abs');
 	}
-	if(document.title == 'Новости'){
+	if(document.title == 'Новости' || document.title == 'Карта'){
 		$(document).find('.main-form').attr('style', 'display: none;');
 	}
 
@@ -142,6 +142,19 @@ $(document).ready(function () {
 		focusOnSelect: true,
 		draggable: false,
 		lazyLoad: 'progressive'		
+	});
+
+	let pagenewsSlider = $(document).find('.pagenews-content-slider').slick({
+		slidesToShow: 1,
+		lazyLoad: 'progressive',
+		fade: true,
+		arrows: false
+	});
+	$(document).on('click', '.pagenews-content-slider-nav-arrPrev', function (e) {
+		pagenewsSlider.slick('slickPrev');
+	});
+	$(document).on('click', '.pagenews-content-slider-nav-arrNext', function (e) {
+		pagenewsSlider.slick('slickNext');
 	});
 
 	$(document).find('[name="tel"]').inputmask({

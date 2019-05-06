@@ -1,0 +1,180 @@
+.pagenews{
+	font-family: 'Roboto Condensed', sans-serif;
+	&__subtitle{
+		max-width: 1160px;
+		margin: 0 auto;
+		font-weight: 300;
+		font-size: 14px;
+		text-transform: uppercase;
+		@include pad(bottom, red);
+	}
+	&__title{
+		max-width: 1160px;
+		margin: 0 auto;
+		text-transform: uppercase;
+		font-size: 36px;
+		font-weight: normal;
+		position: relative;
+		@include pad(bottom, grey);
+		
+		&:before{
+			content: '';
+			width: 39px;
+			height: 3px;
+			background: #D9C892;
+			position: absolute;
+			left: -60px;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+	}
+	&__banner{
+		height: 550px;
+		overflow: hidden;
+		@include pad(bottom, blue);
+		img{
+			width: 100%;
+			position: relative;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+	}
+	&-content{
+		width: 900px;
+		margin: 0 auto 40px;
+		&-info{
+			display: flex;
+			@include pad(bottom, blue);
+			&-item{
+				display: flex;
+				align-items: center;
+				margin-right: 90px;
+				font-size: 12px;
+				line-height: 14px;
+				color: #171717;
+				svg{
+					margin-right: 10px;
+				}
+			}
+		}
+		&__subtitle{
+			font-size: 24px;
+			@include pad(bottom, blue);
+		}
+		&__text{
+			font-weight: 300;
+			font-size: 18px;
+			line-height: 37px;
+			letter-spacing: 0.02em;
+			@include pad(bottom, grey);
+		}
+		&-slider{
+			height: 556px;
+			overflow: hidden;
+			opacity: 0;
+			transition: 0.3s;
+			@include pad(bottom, grey);
+			&.slick-initialized{
+				opacity: 1;
+			}
+			.pagenews-content-slider &-item{
+				display: flex;
+				flex-direction: column;
+				img{
+					height: 518px;
+					align-self: center;
+					@include pad(bottom, red);
+				}
+			}
+			&-wrap{
+				position: relative;
+			}
+			&-nav{
+				position: absolute;
+				right: 0;
+				bottom: 38px;
+				display: flex;
+				background: #FFFFFF;
+				border: 1px solid #BEBEBE;
+				&-arrPrev,
+				&-arrNext{
+					padding: 22px;
+					transition: 0.3s;
+					cursor: pointer;
+					@media screen and (min-width: 1200px){
+						&:hover{
+							background: rgba(217, 200, 146, 0.2);
+						}
+					}
+				}
+				&-arrPrev{
+					border-right: 1px solid #BEBEBE;
+				}
+			}
+		}
+		&-share{
+			display: flex;
+			&-item{
+				margin-right: 20px;
+				.ya-share2__link{
+					transition: 0.3s;
+				}
+				.ya-share2__item:hover{
+					opacity: 1;
+					.ya-share2__link{
+						transform: translateY(-3px);
+						box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+					}
+				}
+				.ya-share2__icon:active{
+					box-shadow: none;
+				}
+				.ya-share2__item_service_vkontakte .ya-share2__badge,
+				.ya-share2__item_service_facebook .ya-share2__badge{
+					background-color: #fff;
+				}
+				.ya-share2__container_size_m .ya-share2__icon{
+					width: 155px;
+					height: 46px;
+				}
+				.ya-share2__item_service_vkontakte .ya-share2__icon{
+					background: url('../images/share-vk.jpg') center no-repeat;
+				}
+				.ya-share2__item_service_facebook .ya-share2__icon{
+					background: url('../images/share-fb.jpg') center no-repeat;
+				}
+			}
+		}
+	}
+	&-next{
+		max-width: 1160px;
+		margin: 0 auto 60px;
+		position: relative;
+		&__title{
+			text-transform: uppercase;
+			font-size: 36px;
+			position: relative;
+			@include pad(bottom, grey);
+			&:before{
+				content: '';
+				width: 39px;
+				height: 3px;
+				background: #D9C892;
+				position: absolute;
+				left: -60px;
+				top: 50%;
+				transform: translateY(-50%);
+			}
+		}
+		&-content{
+			max-height: 429px;
+			display: flex;
+			margin: 0 -20px;
+			opacity: 0;
+			animation: tadaa 0.5s normal forwards ease-in-out;
+			animation-iteration-count: 1;
+			animation-delay: 1s;
+		}
+	}
+}
