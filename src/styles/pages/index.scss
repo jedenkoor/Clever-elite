@@ -724,6 +724,8 @@
 			display: flex;
 			&-left{
 				margin-bottom: -30px;
+				width: 497px;
+				height: 423px;
 			}
 			&-right{
 				margin-left: 20px;
@@ -765,6 +767,7 @@
 				input{
 					display: block;
 					width: 100%;
+					max-width: 335px;
 					background: #FFFFFF;
 					border: 1px solid #B1B1B1;
 					font-weight: 300;
