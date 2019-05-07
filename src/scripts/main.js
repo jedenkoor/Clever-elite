@@ -172,6 +172,11 @@ $(document).ready(function () {
 		showMaskOnFocus: true
 	});
 
+	$(document).find('.catalog-content-top__right select').SumoSelect({
+		forceCustomRendering: true,
+		placeholder: 'This is a placeholder'
+	});
+
 	var mainFormContainers = $('.main-form .main-form-content-right-tabs-tab');
 	mainFormContainers.hide().filter(':first').fadeIn().attr('style', 'visibility: visible; display: block;');
 	$('.main-form .main-form-content-right-tabs-navigation label').filter(':first').addClass('selected');
@@ -287,6 +292,15 @@ $(document).on('click', '.house-tabs-tab-right-slider-nav-item', function (e) {
 	$(this).addClass('selected');
 });
 
+$(document).on('click', '.catalog-content-top__right > label', function (e) {
+	$(this).siblings(".SumoSelect").find('.CaptionCont.SelectBox').click();
+});
+$('.catalog-content-top__right > select').on('sumo:opened', function(sumo) {
+	$(this).closest('.catalog-content-top__right').addClass('open');
+});
+$('.catalog-content-top__right > select').on('sumo:closed', function(sumo) {
+	$(this).closest('.catalog-content-top__right').removeClass('open');
+});
 
 $(window).scroll(function() {
 	

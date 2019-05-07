@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="assets/scripts/slick/slick.css">
     <link rel="stylesheet" type="text/css" href="assets/scripts/slick/slick-theme.css">
     <link rel="stylesheet" type="text/css" href="assets/scripts/fancybox/jquery.fancybox.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/scripts/sumoselect/sumoselect.min.css">
     <link rel="stylesheet" href="assets/styles/app.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
@@ -44,25 +45,59 @@
         <div class="catalog">
           <div class="catalog__subtitle">Лучшие предложения</div>
           <h1 class="catalog__title">Каталог загородной недвижимости</h1>
-          <div class="catalog-wrap">
-            <form class="catalog-tags" action="#">
-              <input type="checkbox" id="tag1" name="tag1">
-              <label for="tag1">С видом на воду</label>
-              <input type="checkbox" id="tag2" name="tag2">
-              <label for="tag2">Наличие леса</label>
-              <input type="checkbox" id="tag3" name="tag3">
-              <label for="tag3">Свой пирс</label>
-              <input type="checkbox" id="tag4" name="tag4">
-              <label for="tag4">Охотничьи угодья</label>
-            </form>
-            <div class="catalog-filters">
-              <div class="catalog-filters-filter">
-                 <svg xmlns="http://www.w3.org/2000/svg" width="15" height="16" viewBox="0 0 15 16" fill="none">
-<path d="M3.25926 10.6667H2.07407V0.296296C2.07407 0.132444 1.94133 0 1.77778 0C1.61422 0 1.48148 0.132444 1.48148 0.296296V10.6667H0.296296C0.132741 10.6667 0 10.7991 0 10.963V14.5185C0 14.6824 0.132741 14.8148 0.296296 14.8148H1.48148V15.7037C1.48148 15.8676 1.61422 16 1.77778 16C1.94133 16 2.07407 15.8676 2.07407 15.7037V14.8148H3.25926C3.42281 14.8148 3.55556 14.6824 3.55556 14.5185V10.963C3.55556 10.7991 3.42281 10.6667 3.25926 10.6667ZM2.96296 14.2222H0.592593V11.2593H2.96296V14.2222Z" fill="black"/>
-<path d="M8.88865 5.92593H7.70347V0.296296C7.70347 0.132444 7.57073 0 7.40717 0C7.24362 0 7.11088 0.132444 7.11088 0.296296V5.92593H5.92569C5.76214 5.92593 5.62939 6.05837 5.62939 6.22222V9.77778C5.62939 9.94163 5.76214 10.0741 5.92569 10.0741H7.11088V15.7037C7.11088 15.8676 7.24362 16 7.40717 16C7.57073 16 7.70347 15.8676 7.70347 15.7037V10.0741H8.88865C9.05221 10.0741 9.18495 9.94163 9.18495 9.77778V6.22222C9.18495 6.05837 9.05221 5.92593 8.88865 5.92593ZM8.59236 9.48148H6.22199V6.51852H8.59236V9.48148Z" fill="black"/>
-<path d="M14.5185 1.18519H13.3334V0.296296C13.3334 0.132444 13.2006 0 13.0371 0C12.8735 0 12.7408 0.132444 12.7408 0.296296V1.18519H11.5556C11.392 1.18519 11.2593 1.31763 11.2593 1.48148V5.03704C11.2593 5.20089 11.392 5.33333 11.5556 5.33333H12.7408V15.7037C12.7408 15.8676 12.8735 16 13.0371 16C13.2006 16 13.3334 15.8676 13.3334 15.7037V5.33333H14.5185C14.6821 5.33333 14.8148 5.20089 14.8148 5.03704V1.48148C14.8148 1.31763 14.6821 1.18519 14.5185 1.18519ZM14.2222 4.74074H11.8519V1.77778H14.2222V4.74074Z" fill="black"/>
+          <div class="catalog-wrapper">
+            <div class="catalog-wrap">
+              <form class="catalog-tags" action="#">
+                <input type="checkbox" id="tag1" name="tag1">
+                <label for="tag1">С видом на воду</label>
+                <input type="checkbox" id="tag2" name="tag2">
+                <label for="tag2">Наличие леса</label>
+                <input type="checkbox" id="tag3" name="tag3">
+                <label for="tag3">Свой пирс</label>
+                <input type="checkbox" id="tag4" name="tag4">
+                <label for="tag4">Охотничьи угодья</label>
+              </form>
+              <div class="catalog-filters">
+                <div class="catalog-filters-filter">
+                   <svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M2.09259 0.296296V10.6667V14.8148V15.7037C2.09259 15.8676 1.95985 16 1.7963 16C1.63274 16 1.5 15.8676 1.5 15.7037V14.8148V10.6667V0.296296C1.5 0.132444 1.63274 0 1.7963 0C1.95985 0 2.09259 0.132444 2.09259 0.296296Z" fill="black"/>
+<path id="icon-elem1" fill-rule="evenodd" clip-rule="evenodd" d="M3.25926 10.6665H2.07407H1.48148H0.296296C0.132741 10.6665 0 10.7989 0 10.9628V14.5184C0 14.6822 0.132741 14.8147 0.296296 14.8147H1.48148H2.07407H3.25926C3.42281 14.8147 3.55556 14.6822 3.55556 14.5184V10.9628C3.55556 10.7989 3.42281 10.6665 3.25926 10.6665ZM0.592593 14.2221H2.96296V11.2591H0.592593V14.2221Z" fill="white"/>
+<path id="icon-elem1" d="M2.96296 14.2221H0.592593V11.2591H2.96296V14.2221Z" fill="white"/>
+<path id="icon-elem1" fill-rule="evenodd" clip-rule="evenodd" d="M3.25926 10.6665H2.07407H1.48148H0.296296C0.132741 10.6665 0 10.7989 0 10.9628V14.5184C0 14.6822 0.132741 14.8147 0.296296 14.8147H1.48148H2.07407H3.25926C3.42281 14.8147 3.55556 14.6822 3.55556 14.5184V10.9628C3.55556 10.7989 3.42281 10.6665 3.25926 10.6665ZM0.592593 14.2221H2.96296V11.2591H0.592593V14.2221Z" fill="black"/>
+<path d="M7.59259 0.296296V10.6667V14.8148V15.7037C7.59259 15.8676 7.45985 16 7.2963 16C7.13274 16 7 15.8676 7 15.7037V14.8148V10.6667V0.296296C7 0.132444 7.13274 0 7.2963 0C7.45985 0 7.59259 0.132444 7.59259 0.296296Z" fill="black"/>
+<path id="icon-elem2" fill-rule="evenodd" clip-rule="evenodd" d="M8.75926 6H7.57407H6.98148H5.7963C5.63274 6 5.5 6.13244 5.5 6.2963V9.85185C5.5 10.0157 5.63274 10.1481 5.7963 10.1481H6.98148H7.57407H8.75926C8.92281 10.1481 9.05556 10.0157 9.05556 9.85185V6.2963C9.05556 6.13244 8.92281 6 8.75926 6ZM6.09259 9.55556H8.46296V6.59259H6.09259V9.55556Z" fill="white"/>
+<path id="icon-elem2" d="M8.46296 9.55556H6.09259V6.59259H8.46296V9.55556Z" fill="white"/>
+<path id="icon-elem2" fill-rule="evenodd" clip-rule="evenodd" d="M8.75926 6H7.57407H6.98148H5.7963C5.63274 6 5.5 6.13244 5.5 6.2963V9.85185C5.5 10.0157 5.63274 10.1481 5.7963 10.1481H6.98148H7.57407H8.75926C8.92281 10.1481 9.05556 10.0157 9.05556 9.85185V6.2963C9.05556 6.13244 8.92281 6 8.75926 6ZM6.09259 9.55556H8.46296V6.59259H6.09259V9.55556Z" fill="black"/>
+<path d="M13 0.296296V10.6667V14.8148V15.7037C13 15.8676 12.8673 16 12.7037 16C12.5401 16 12.4074 15.8676 12.4074 15.7037V14.8148V10.6667V0.296296C12.4074 0.132444 12.5401 0 12.7037 0C12.8673 0 13 0.132444 13 0.296296Z" fill="black"/>
+<path id="icon-elem3" fill-rule="evenodd" clip-rule="evenodd" d="M14.2593 1.35185H13.0741H12.4815H11.2963C11.1327 1.35185 11 1.4843 11 1.64815V5.2037C11 5.36756 11.1327 5.5 11.2963 5.5H12.4815H13.0741H14.2593C14.4228 5.5 14.5556 5.36756 14.5556 5.2037V1.64815C14.5556 1.4843 14.4228 1.35185 14.2593 1.35185ZM11.5926 4.90741H13.963V1.94444H11.5926V4.90741Z" fill="white"/>
+<path id="icon-elem3" d="M13.963 4.90741H11.5926V1.94444H13.963V4.90741Z" fill="white"/>
+<path id="icon-elem3" fill-rule="evenodd" clip-rule="evenodd" d="M14.2593 1.35181H13.0741H12.4815H11.2963C11.1327 1.35181 11 1.48425 11 1.6481V5.20366C11 5.36751 11.1327 5.49995 11.2963 5.49995H12.4815H13.0741H14.2593C14.4228 5.49995 14.5556 5.36751 14.5556 5.20366V1.6481C14.5556 1.48425 14.4228 1.35181 14.2593 1.35181ZM11.5926 4.90736H13.963V1.9444H11.5926V4.90736Z" fill="black"/>
 </svg><span>Фильтры</span>
+                </div>
               </div>
+            </div>
+          </div>
+          <div class="catalog-content"><svg xmlns="http://www.w3.org/2000/svg" width="808" height="1" viewBox="0 0 808 1" fill="none">
+<line x1="808" y1="0.375" x2="3.27835e-08" y2="0.375071" stroke="url(#paint0_linear)" stroke-width="0.75"/>
+<defs>
+<linearGradient id="paint0_linear" x1="2.15722e-08" y1="-0.00413983" x2="808" y2="-5.97531e-08" gradientUnits="userSpaceOnUse">
+<stop stop-color="#E09B3D" stop-opacity="0"/>
+<stop offset="0.491713" stop-color="#E09B3D"/>
+<stop offset="1" stop-color="#E09B3D" stop-opacity="0"/>
+</linearGradient>
+</defs>
+</svg>
+            <div class="catalog-content-top">
+              <div class="catalog-content-top__left">Доступно 2243 объявления</div>
+              <form class="catalog-content-top__right" action="#">
+                <label>Сортировать</label>
+                <select name="sort" id="sort" placeholder="">
+                  <option>Цена (по возрастанию)</option>
+                  <option>Цена (по убыванию)</option>
+                  <option>Популярности</option>
+                  <option>Новизне</option>
+                </select>
+              </form>
             </div>
           </div>
         </div>
@@ -170,6 +205,7 @@
     </div>
     <script src="assets/scripts/slick/slick.min.js"></script>
     <script src="assets/scripts/jquery.inputmask.bundle.js"></script>
+    <script src="assets/scripts/sumoselect/jquery.sumoselect.min.js"></script>
     <script src="assets/scripts/fancybox/jquery.fancybox.min.js"></script>
     <script src="assets/scripts/instafeed.js"></script>
     <script src="assets/scripts/main.js"></script>
