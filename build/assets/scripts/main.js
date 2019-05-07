@@ -177,6 +177,52 @@ $(document).ready(function () {
 		placeholder: 'This is a placeholder'
 	});
 
+	$(document).find('.catalog-filters-popup-content-pair select').SumoSelect({
+		forceCustomRendering: true,
+		placeholder: 'This is a placeholder'
+	});
+
+	$(document).find('[name="filter-price"]').ionRangeSlider({
+		skin: "sharp",
+		type: 'double',
+		hide_min_max: true,
+		postfix: ' ₽',
+		force_edges: true
+	});
+	let my_range1 = $(document).find('[name="filter-price"]').data("ionRangeSlider");
+	
+	$(document).find('[name="filter-squareArea"]').ionRangeSlider({
+		skin: "sharp",
+		type: 'double',
+		hide_min_max: true,
+		postfix: ' га',
+		force_edges: true
+	});
+	let my_range2 = $(document).find('[name="filter-squareArea"]').data("ionRangeSlider");
+
+	$(document).find('[name="filter-squareHouse"]').ionRangeSlider({
+		skin: "sharp",
+		type: 'double',
+		hide_min_max: true,
+		postfix: ' м2',
+		force_edges: true
+	});
+	let my_range3 = $(document).find('[name="filter-squareHouse"]').data("ionRangeSlider");
+
+	$(document).on('click', '.catalog-filters-popup-btns__reset', function (e) {
+		my_range1.reset();
+		my_range2.reset();
+		my_range3.reset();
+		$(".catalog-filters-popup input[type=checkbox]").prop('checked', false);
+		var num = $('.catalog-filters-popup-content-pair select option').length;
+    for(let i = 0; i < num; i++){
+			$('.catalog-filters-popup-content-pair select')[0].sumo.unSelectItem(i);
+		}
+		$('.catalog-filters-popup-content-pair select')[0].sumo.selectItem(0);
+		$('.catalog-filters-popup-content-pair .SumoSelect .opt:first-child').addClass('selected');
+	});
+	
+
 	var mainFormContainers = $('.main-form .main-form-content-right-tabs-tab');
 	mainFormContainers.hide().filter(':first').fadeIn().attr('style', 'visibility: visible; display: block;');
 	$('.main-form .main-form-content-right-tabs-navigation label').filter(':first').addClass('selected');
@@ -302,6 +348,38 @@ $('.catalog-content-top__right > select').on('sumo:closed', function(sumo) {
 	$(this).closest('.catalog-content-top__right').removeClass('open');
 });
 
+$(document).on('click', '.catalog-content-main-item-top-fav[data-action="addToFav"]', function(e){
+	e.preventDefault();
+	if ($(this).hasClass('active')) {
+		$(this).removeClass('active');
+	} else {
+		$(this).addClass('active');
+	}
+	ajaxId = $(this).data('id');
+	ajaxAction = $(this).data('action');
+	ajaxUrl = $(this).data('url');
+	var fd = new FormData();   
+	fd.append('id',ajaxId);
+	fd.append('action',ajaxAction);
+	sendAjax(fd, ajaxUrl);
+	for (var pair of fd.entries()) {
+		console.log(pair[0]+ ', ' + pair[1]); 
+	}
+});
+
+function sendAjax(data, url) {
+	$.ajax({
+		url: url,
+		data: data,
+		processData: false,
+		contentType: false,
+		type: 'POST',
+		success: function(data){
+			alert(data);
+		}
+	});
+}
+
 $(window).scroll(function() {
 	
 });
@@ -315,4 +393,5 @@ function resizewindow() {
 	for (let i = 0; i < newsRestImages.length; i++) {
 		newsRestImages.eq(i).css('height', $(newsRestImages.eq(i)).closest('.news-rest-item').width() + 'px');
 	}
+	//$(document).find('.catalog-content-main-item').css('height', $(document).find('.catalog-content-main-item').width() + 'px');
 };
