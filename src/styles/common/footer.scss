@@ -40,6 +40,7 @@
 					}
 					&-content{
 						&__link{
+							display: block;
 							font-size: 14px;
 							font-weight: 300;
 							@include pad(bottom, blue);
@@ -111,6 +112,9 @@
 				&-socials{
 					display: flex;
 					margin-top: 25px;
+					img{
+						transition: 0.3s;
+					}
 					a:hover{
 						img{
 							transform: translateY(-3px);

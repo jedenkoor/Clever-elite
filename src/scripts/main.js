@@ -8,7 +8,7 @@ $(document).ready(function () {
 		$(document).find('.house-banner').addClass('white');
 		$(document).find('.breadcrumbs').addClass('breadcrumbs-abs');
 	}
-	if(document.title == 'Новости' || document.title == 'Карта'){
+	if(document.title == 'Новости' || document.title == 'Карта' || document.title == 'Избранное' || document.title == 'Текстовая страница'){
 		$(document).find('.main-form').attr('style', 'display: none;');
 	}
 	if(document.title == 'О компании'){
@@ -222,6 +222,9 @@ $(document).ready(function () {
 		$('.catalog-filters-popup-content-pair .SumoSelect .opt:first-child').addClass('selected');
 	});
 	
+	$('.catalog-filters-filter').fancybox({
+		touch: false
+	});
 
 	var mainFormContainers = $('.main-form .main-form-content-right-tabs-tab');
 	mainFormContainers.hide().filter(':first').fadeIn().attr('style', 'visibility: visible; display: block;');
@@ -379,6 +382,46 @@ function sendAjax(data, url) {
 		}
 	});
 }
+
+$(document).on('blur', 'input:not(input[name="tel"]):not(input[name="email"])', function(){
+	if( $(this).val() != '' ){
+			$(this).addClass('input-border');
+	} else {
+			$(this).removeClass('input-border');
+	}
+});
+$(document).on('blur', 'input[name="tel"], input[name="email"]', function(){
+	if ( $(this).inputmask("isComplete") ){
+			$(this).addClass('input-border');
+	} else {
+			$(this).removeClass('input-border');
+	}
+});
+$(document).on('click', 'button[type="submit"]', function(){
+	let inputs = $(this).closest('form').find('input[data-required=""]'),
+			temp = true;
+	console.log(inputs);
+	if ( ($(this).closest('form').find('input[name="tel"]').length != 0 && $(this).closest('form').find('input[name="tel"]').hasClass('input-border')) || ($(this).closest('form').find('input[name="email"]').length != 0 && $(this).closest('form').find('input[name="email"]').hasClass('input-border')) ) {
+		$(this).closest('form').find('input[name="tel"]').removeClass('input-err');
+	} else {
+		$(this).closest('form').find('input[name="tel"]').addClass('input-err');
+		$(this).closest('form').find('input[name="email"]').addClass('input-err');
+		temp = false;
+		console.log(1);
+	}
+	for (var i = 0; i < inputs.length; i++) {
+			if ( !inputs.eq(i).hasClass('input-border') ) {
+					inputs.eq(i).addClass('input-err');
+					temp = false;
+					console.log(3);
+			} else {
+					inputs.eq(i).removeClass('input-err');
+			}
+	}
+	if( temp == false ){
+			return false;
+	}
+});
 
 $(window).scroll(function() {
 	

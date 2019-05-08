@@ -72,17 +72,26 @@
 		right: 20px;
 		&-popup{
 			font-family: 'Roboto Condensed', sans-serif;
-			padding: 20px;
+			padding: 10px 20px 20px;
 			.fancybox-close-small{
 				padding: 0px;
 				right: 10px;
 				top: 10px;
 			}
+			&-wrap{
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				@include pad(bottom, purple);
+			}
 			&__title{
 				font-size: 24px;
 				line-height: 28px;
 				text-transform: uppercase;
-				@include pad(bottom, purple);
+			}
+			&__close{
+				padding: 10px;
+				cursor: pointer;
 			}
 			&-content{
 				display: flex;
