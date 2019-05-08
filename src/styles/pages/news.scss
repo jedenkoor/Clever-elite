@@ -68,6 +68,7 @@
 				overflow: hidden;
 			}
 			&__img{
+				max-height: 407px;
 				position: relative;
 				left: 50%;
 				transform: translateX(-50%);
@@ -133,6 +134,7 @@
 				overflow: hidden;
 			}
 			&__img{
+				max-height: 260px;
 				position: relative;
 				left: 50%;
 				transform: translateX(-50%);

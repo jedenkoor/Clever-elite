@@ -469,17 +469,23 @@
 		}
 	}
 	&-inst{
-		max-width: 1160px;
 		margin: 0 auto 100px;
 		position: relative;
+		&-wrapper{
+			position: relative;
+			margin: 0 20px;
+		}
 		&-wrap{
+			margin: 0 auto;
+			max-width: 1160px;
 			display: flex;
 			justify-content: space-between;
 			align-items: flex-end;
-			margin-right: -112px;
 			@include pad(bottom, grey);
 		}
 		&-btn{
+			position: absolute;
+			right: 0;
 			&__link{
 				width: 103.19px;
 				height: 26px;
@@ -518,8 +524,8 @@
 			}
 		}
 		.instafeed{
+			padding: 0 10px;
 			height: 488px;
-			margin: 0 -122px;
 			font-family: 'Lato', sans-serif;
 			opacity: 0;
 			transition: 0.3s;
