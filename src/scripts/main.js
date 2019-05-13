@@ -297,6 +297,21 @@ $(document).ready(function () {
 		initialSlickObserver.observe(initialSlickElement, initialSlickOptions);
 	}
 
+	let hideInfoFooter = $(document).find('.footer-top-left-bot-section-content');
+	for (let i = 0; i < hideInfoFooter.length; i++) {
+		hideInfoFooter.eq(i).prev().removeClass('out');
+		hideInfoFooter.eq(i).slideUp();
+	}
+
+	let itemsHeaderMenu = $(document).find('.header-menu-item__link');
+	if( itemsHeaderMenu.length % 3 == 1 ){
+		$('.header-menu-item').append('<a class="header-menu-item__link" style="height: 0px;" href="#"></a>');
+		$('.header-menu-item').append('<a class="header-menu-item__link" style="height: 0px;" href="#"></a>');
+	}
+	if( itemsHeaderMenu.length % 3 == 2 ){
+		$('.header-menu-item').append('<a class="header-menu-item__link" style="height: 0px;" href="#"></a>');
+	}
+
 	resizewindow();
 	$(window).resize(function(e){
 		resizewindow();
@@ -312,11 +327,19 @@ $(document).on('click', '.header-top-menu', function (e) {
 			$(document).find('.header').removeClass('white-menu');
 		}
 		$(document).find('.header-menu').addClass('fadeOutUp');
+		if (screen.width < 768) {
+			$('body').attr('style', '');
+			$('.header-top').attr('style', '');
+		}
 	} else {
 		if ( $('.header').hasClass('white') ) {
 			$(document).find('.header').addClass('white-menu');
 		}
 		$(document).find('.header-menu').removeClass('fadeOutUp');
+		if (screen.width < 768) {
+			$('body').attr('style', 'position: fixed; width: 100%; height: 100%');
+			setTimeout(function() { $('.header-top').attr('style', 'background: #fff'); }, 500);
+		}
 	}
 	$(this).find('.hamburger').toggleClass('is-active');
 });
@@ -423,11 +446,20 @@ $(document).on('click', 'button[type="submit"]', function(){
 	}
 });
 
+$(document).on('click', '.footer-top-left-bot-section__title', function(){
+	$(this).toggleClass('out');
+	$(this).next().slideToggle();
+	$('.pagefaq-main-item__title').not(this).removeClass('out').next().slideUp();
+});
+
 $(window).scroll(function() {
 	
 });
 
 function resizewindow() {
+	let vh = window.innerHeight * 0.01;
+	document.documentElement.style.setProperty('--vh', `${vh}px`);
+	
 	let newsMainImages = $(document).find('.news-main-item__img')
 	for (let i = 0; i < newsMainImages.length; i++) {
 		newsMainImages.eq(i).css('height', $(newsMainImages.eq(i)).closest('.news-main-item').width() * 0.728 + 'px');

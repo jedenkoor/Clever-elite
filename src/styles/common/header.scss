@@ -24,7 +24,8 @@
 	&.white{
 		color: #fff;
 		.header-top__logo{
-			background: url('../images/logo-white.svg') center no-repeat;
+			background: url('../images/logo-white.svg') left center no-repeat;
+			background-size: contain;
 		}
 		.hamburger-inner, .hamburger-inner:after, .hamburger-inner:before{
 			background-color: #FFFFFF;
@@ -74,7 +75,8 @@
 		&__logo{
 			width: 125px;
 			height: 60px;
-			background: url('../images/logo.svg') center no-repeat;
+			background: url('../images/logo.svg') left center no-repeat;
+			background-size: contain;
 		}
 		&-menu{
 			display: flex;
@@ -169,18 +171,85 @@
 		background: #fff;
 		padding: 140px 20px 20px;
 		display: none;
-		justify-content: space-between;
-		&-item{
-			opacity: 0;
-			width: 25%;
-			margin-bottom: 10px;
+		overflow: scroll;
+		&-wrap{
+			min-height: 505px;
+			height: 100%;
 			display: flex;
 			flex-direction: column;
-			align-items: flex-start;
-			&:last-child{
-				width: auto;
+			justify-content: space-around;
+			> img{
+				display: none;
 			}
+		}
+		&-top,
+		&-bot{
+			opacity: 0;
+			display: none;
+		}
+		&-top{
 			&__link{
+				text-decoration: underline;
+				display: inline-block;
+				line-height: 15px;
+				width: 50%;
+				padding: 10px;
+				padding-left: 0;
+			}
+		}
+		&-bot{
+			justify-content: space-between;
+			&-info{
+				width: 33%;
+				display: flex;
+				&-wrap{
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+				}
+				span{
+					font-size: 12px;
+					font-weight: 300;
+					margin-top: 10px;
+				}
+			}
+			&-btn{
+				width: 33%;
+				&__link{
+				text-transform: initial;
+				width: 227px;
+				height: 40px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				color: #000000;
+				background: #E2C773;
+				}
+			}
+			&-socials{
+				width: 33%;
+				display: flex;
+				&__item{
+					margin: 0 10px;
+					img{
+						width: 35px;
+					}
+				}
+			}
+		}
+		&-mid{
+			opacity: 0;
+			display: flex;
+			justify-content: space-between;
+		}
+		&-item{
+			width: 100%;
+			margin-bottom: 10px;
+			display: flex;
+			justify-content: space-between;
+			flex-wrap: wrap;
+			&__link{
+				width: 33%;
 				line-height: 21px;
 				@include pad(bottom, blue);
 				@media screen and (min-width: 1200px){
@@ -199,10 +268,13 @@
 		}
 		&.active{
 			display: flex;
+			align-items: flex-start;
 			top: calc(100% - 100px);
 		}
 		&.fadeInDown{
-			& .header-menu-item{
+			& .header-menu-top,
+			& .header-menu-mid,
+			& .header-menu-bot{
 				animation: tadaa 0.5s normal forwards ease-in-out;
 				animation-iteration-count: 1;
 				animation-delay: 0.3s;
@@ -244,6 +316,139 @@
 		& .breadcrumbs__link{
 			font-weight: normal;
 			color: #fff;
+		}
+	}
+}
+
+@include w1024{
+	.header{
+		&-top{
+			&-info,
+			&-btn{
+				display: none;
+			}
+			&-menu{
+				order: 1;
+				> span{
+					display: none;
+				}
+			}
+		}
+		&-menu{
+			&-bot{
+				margin-bottom: 40px;
+				display: flex;			
+			}
+			&-socials-wrap{
+				display: none;
+			}
+		}
+	}
+}
+
+@include w768{
+	.header{
+		font-size: 14px;
+		&-top{
+			&__logo{
+				height: 50px;
+				width: 105px;
+			}
+			&-menu{
+				> span{
+
+				}
+			}
+		}
+		&-menu{
+			&-bot{
+				&-btn{
+					&__link{
+						width: 187px;
+						height: 35px;
+					}
+				}	
+			}
+		}
+	}
+}
+
+@include w480{
+	.header{
+		&-menu{
+			height: 100vh;
+			height: calc(var(--vh, 1vh) * 100);
+			padding: 120px 20px 20px;
+			&-item{
+				&__link{
+					width: 50%;
+					margin-bottom: 20px;
+				}
+			}
+			&-bot{
+				flex-direction: column;
+				align-items: center;
+				margin-bottom: 0;
+				&-info{
+					width: 100%;
+					margin-bottom: 30px;
+					justify-content: center;
+				}
+				&-btn{
+					width: 100%;
+					margin-bottom: 30px;
+					&__link{
+						margin: 0 auto;
+					}
+				}	
+				&-socials{
+					width: 100%;
+					justify-content: center;
+				}
+			}
+		}
+	}
+}
+
+@include w320{
+	.header{
+		&-top{
+			padding: 10px;
+			&-links{
+				display: none;
+			}
+			&__logo{
+				height: 45px;
+				width: 95px;
+			}
+		}
+		&-menu{
+			padding: 70px 10px 10px;
+			&.active{
+				top: calc(100% - 65px);
+			}
+			&-wrap{
+				> img{
+					width: 100%;
+					display: block;
+					min-height: 1px;
+				}
+			}
+			&-item{
+				padding-top: 10px;
+				margin-bottom: 0;
+			}
+			&-top{
+				display: flex;
+			}
+			&-bot{
+				margin-top: 20px;
+				&-btn{
+					&__link{
+
+					}
+				}	
+			}
 		}
 	}
 }

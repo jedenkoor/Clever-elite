@@ -95,3 +95,18 @@ input.input-err{
 		}
 	}
 }
+
+@include w320{
+	.popup-form{
+		padding: 15px 20px;
+		max-width: 300px;
+		&-bot{
+			flex-direction: column;
+			align-items: center;
+			&__btn{
+				margin-right: 0;
+				margin-bottom: 20px;
+			}
+		}
+	}
+}
