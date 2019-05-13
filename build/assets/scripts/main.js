@@ -296,11 +296,13 @@ $(document).ready(function () {
 		}
 		initialSlickObserver.observe(initialSlickElement, initialSlickOptions);
 	}
-
-	let hideInfoFooter = $(document).find('.footer-top-left-bot-section-content');
-	for (let i = 0; i < hideInfoFooter.length; i++) {
-		hideInfoFooter.eq(i).prev().removeClass('out');
-		hideInfoFooter.eq(i).slideUp();
+	
+	if (screen.width < 768) {
+		let hideInfoFooter = $(document).find('.footer-top-left-bot-section-content');
+		for (let i = 0; i < hideInfoFooter.length; i++) {
+			hideInfoFooter.eq(i).prev().removeClass('out');
+			hideInfoFooter.eq(i).slideUp();
+		}
 	}
 
 	let itemsHeaderMenu = $(document).find('.header-menu-item__link');
