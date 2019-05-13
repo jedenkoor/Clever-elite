@@ -462,6 +462,11 @@ function resizewindow() {
 	let vh = window.innerHeight * 0.01;
 	document.documentElement.style.setProperty('--vh', `${vh}px`);
 	
+	var div = $('.header-menu');
+	div.removeClass('fadeInDown');
+	div.addClass('fadeOutUp');
+	$(document).find('.hamburger').removeClass('is-active');
+
 	let newsMainImages = $(document).find('.news-main-item__img')
 	for (let i = 0; i < newsMainImages.length; i++) {
 		newsMainImages.eq(i).css('height', $(newsMainImages.eq(i)).closest('.news-main-item').width() * 0.728 + 'px');

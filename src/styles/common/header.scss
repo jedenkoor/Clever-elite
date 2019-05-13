@@ -171,7 +171,6 @@
 		background: #fff;
 		padding: 140px 20px 20px;
 		display: none;
-		overflow: scroll;
 		&-wrap{
 			height: 100%;
 			width: 100%;
@@ -379,6 +378,7 @@
 			height: 100vh;
 			height: calc(var(--vh, 1vh) * 100);
 			padding: 120px 20px 20px;
+			overflow: scroll;
 			&-wrap{
 				min-height: 505px;
 			}
