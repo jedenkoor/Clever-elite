@@ -29,12 +29,19 @@ $(document).ready(function () {
 		swipe: false,
 		lazyLoad: 'progressive'
 	});
-	var $status = $('.main-banner-current');
-	var $slickElement = $('.main-banner-slider');
-	$slickElement.on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
+	var $desctopStatus = $('.desctop .main-banner-current');
+	var $DesctopSlickElement = $('.desctop .main-banner-slider');
+	$DesctopSlickElement.on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
 		//currentSlide is undefined on init -- set it to 0 in this case (currentSlide is 0 based)
 		var i = (currentSlide ? currentSlide : 0) + 1;
-		$status.text(i + ' / ' + slick.slideCount);
+		$desctopStatus.text(i + ' / ' + slick.slideCount);
+	});
+	var $mobileStatus = $('.mobile .main-banner-current');
+	var $mobileSlickElement = $('.mobile .main-banner-slider');
+	$mobileSlickElement.on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
+		//currentSlide is undefined on init -- set it to 0 in this case (currentSlide is 0 based)
+		var i = (currentSlide ? currentSlide : 0) + 1;
+		$mobileStatus.text(i + ' / ' + slick.slideCount);
 	});
 
 	let houseSlider = $(document).find('.house-banner-slider').slick({
@@ -71,7 +78,21 @@ $(document).ready(function () {
 		slidesToShow: 3,
   	slidesToScroll: 1,
 		infinite: false,
-		lazyLoad: 'progressive'
+		lazyLoad: 'progressive',
+		responsive: [
+			{
+				breakpoint: 768,
+				settings: {
+					slidesToShow: 2
+				}
+			},
+			{
+				breakpoint: 480,
+				settings: {
+					slidesToShow: 1
+				}
+			}
+		]
 	});
 	$('.main-tabs-navigation__item').click(function (e) {
 		e.preventDefault();
@@ -82,7 +103,21 @@ $(document).ready(function () {
 			slidesToShow: 3,
 			slidesToScroll: 1,
 			infinite: false,
-			lazyLoad: 'progressive'
+			lazyLoad: 'progressive',
+			responsive: [
+				{
+					breakpoint: 768,
+					settings: {
+						slidesToShow: 2
+					}
+				},
+				{
+					breakpoint: 480,
+					settings: {
+						slidesToShow: 1
+					}
+				}
+			]
 		});
 		$('.main-tabs-navigation__item').removeClass('selected');
 		$(this).addClass('selected');
@@ -145,7 +180,15 @@ $(document).ready(function () {
 		variableWidth: true,
 		focusOnSelect: true,
 		draggable: false,
-		lazyLoad: 'progressive'		
+		lazyLoad: 'progressive',
+		responsive: [
+			{
+				breakpoint: 480,
+				settings: {
+					variableWidth: false
+				}
+			}
+		]
 	});
 
 	let pagenewsSlider = $(document).find('.pagenews-content-slider').slick({
@@ -275,7 +318,27 @@ $(document).ready(function () {
 				if( !$(document).find('#instafeed').hasClass('slick-initialized') ){
 					$(document).find('#instafeed').slick({
 						slidesToShow: 4,
-						slidesToScroll: 1
+						slidesToScroll: 1,
+						responsive: [
+							{
+								breakpoint: 1025,
+								settings: {
+									slidesToShow: 3
+								}
+							},
+							{
+								breakpoint: 768,
+								settings: {
+									slidesToShow: 2
+								}
+							},
+							{
+								breakpoint: 480,
+								settings: {
+									slidesToShow: 1
+								}
+							}
+						]
 					});
 					let dateHidden = $(document).find('.instafeed-item-bot-dateHidden');
 					let dateShow = $(document).find('.instafeed-item-bot-date');
@@ -461,6 +524,17 @@ $(window).scroll(function() {
 function resizewindow() {
 	let vh = window.innerHeight * 0.01;
 	document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+	if (screen.width < 768) {
+		$(document).find('.main-object-filter select').SumoSelect({
+			forceCustomRendering: true,
+			placeholder: 'Фильтр'
+		});
+	} else {
+		if($('.main-object-filter select').length != 0){
+			$('.main-object-filter select')[0].sumo.unload();
+		}
+	}
 	
 	var div = $('.header-menu');
 	div.removeClass('fadeInDown');
