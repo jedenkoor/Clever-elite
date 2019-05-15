@@ -1,12 +1,12 @@
+.mobile{
+	display: none;
+}
 .main{
 	font-family: 'Roboto Condensed', sans-serif;
 	&-banner{
 		margin-top: -100px;
 		position: relative;
 		@include pad(bottom, cyan);
-		&.mobile{
-			display: none;
-		}
 		&-slider{
 			height: calc(100vh - 130px);
 			overflow: hidden;
@@ -45,6 +45,9 @@
 			position: absolute;
 			top: calc(50% - 65px);
 			right: 139px;
+			span{
+				font-size: 24px;
+			}
 		}
 		&-content{
 			position: absolute;
@@ -1129,15 +1132,15 @@
 }
 
 @include w480{
+	.desctop{
+		display: none;
+	}
+	.mobile{
+		display: block;
+	}
 	.main{
 		&-banner{
 			margin-bottom: 40px;
-			&.desctop{
-				display: none;
-			}
-			&.mobile{
-				display: block;
-			}
 			&-current{
 				right: 50%;
 				transform: translateX(50%);

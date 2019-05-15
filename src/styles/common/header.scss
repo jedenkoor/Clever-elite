@@ -82,6 +82,10 @@
 			display: flex;
 			align-items: center;
 			cursor: pointer;
+			.hamburger{
+				width: 60px;
+				height: 60px;
+			}
 			.hamburger--collapse.is-active .hamburger-inner{
 				top: 19px;
 				transition: 0.3s;
@@ -373,6 +377,9 @@
 }
 
 @include w480{
+	.breadcrumbs{
+		margin-top: 10px;
+	}
 	.header{
 		&-menu{
 			height: 100vh;
@@ -414,6 +421,12 @@
 }
 
 @include w320{
+	.breadcrumbs{
+		padding: 0 10px;
+		&-abs{
+			top: 80px;
+		}
+	}
 	.header{
 		&-top{
 			padding: 10px;

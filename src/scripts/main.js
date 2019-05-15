@@ -34,14 +34,14 @@ $(document).ready(function () {
 	$DesctopSlickElement.on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
 		//currentSlide is undefined on init -- set it to 0 in this case (currentSlide is 0 based)
 		var i = (currentSlide ? currentSlide : 0) + 1;
-		$desctopStatus.text(i + ' / ' + slick.slideCount);
+		$desctopStatus.html('<span>' + i + '</span> / ' + slick.slideCount);
 	});
 	var $mobileStatus = $('.mobile .main-banner-current');
 	var $mobileSlickElement = $('.mobile .main-banner-slider');
 	$mobileSlickElement.on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
 		//currentSlide is undefined on init -- set it to 0 in this case (currentSlide is 0 based)
 		var i = (currentSlide ? currentSlide : 0) + 1;
-		$mobileStatus.text(i + ' / ' + slick.slideCount);
+		$mobileStatus.html('<span>' + i + '</span> / ' + slick.slideCount);
 	});
 
 	let houseSlider = $(document).find('.house-banner-slider').slick({
@@ -536,6 +536,15 @@ function resizewindow() {
 		}
 	}
 	
+	if (screen.width < 1200 && screen.width > 767) {
+		$(document).find('.house-features-main-item').css('height', $(document).find('.house-features-main-item').width() * 1.355 + 'px');
+	};
+
+	if (screen.width < 768) {
+		$(document).find('.house-features-main-item').css('height', $(document).find('.house-features-main-item').width() * 0.666 + 'px');
+	}
+
+	//
 	var div = $('.header-menu');
 	div.removeClass('fadeInDown');
 	div.addClass('fadeOutUp');
