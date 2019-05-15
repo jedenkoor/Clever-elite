@@ -136,9 +136,11 @@
 							display: inline-block;
 							cursor: pointer;
 							white-space: nowrap;
-							&:hover{
-								.catalog-filters-popup-content-pair-main__box{
-									background: rgba(224, 155, 61, 0.3);
+							@media screen and (min-width: 1200px){
+								&:hover{
+									.catalog-filters-popup-content-pair-main__box{
+										background: rgba(224, 155, 61, 0.3);
+									}
 								}
 							}
 						}
@@ -152,11 +154,13 @@
 							border-radius: 0;
 							transition: 0.3s;
 						}
-						&.open>.CaptionCont, 
-						&:focus>.CaptionCont, 
-						&:hover>.CaptionCont{
-							box-shadow: none;
-							border: 1px solid #000000;
+						@media screen and (min-width: 1200px){
+							&.open>.CaptionCont, 
+							&:focus>.CaptionCont, 
+							&:hover>.CaptionCont{
+								box-shadow: none;
+								border: 1px solid #000000;
+							}
 						}
 						&>.optWrapper{
 							top: 33px;
@@ -167,8 +171,10 @@
 							>.options li.opt{
 								padding: 6px 8px;
 								border-bottom: none;
-								&:hover{
-									background: rgba(226, 199, 115, 0.2);
+								@media screen and (min-width: 1200px){
+									&:hover{
+										background: rgba(226, 199, 115, 0.2);
+									}
 								}
 								&.selected{
 									background: #E2C773;
@@ -207,8 +213,10 @@
 					}
 					.irs--sharp .irs-handle{
 						background: #E09B3D;
-						&:hover{
-							background: #E09B3D;
+						@media screen and (min-width: 1200px){
+							&:hover{
+								background: #E09B3D;
+							}
 						}
 					}
 					.irs--sharp .irs-handle>i:first-child{
@@ -386,10 +394,12 @@
 							display: none;
 						}
 					}
-					&.open>.CaptionCont, 
-					&:focus>.CaptionCont, 
-					&:hover>.CaptionCont{
-						box-shadow: none;
+					@media screen and (min-width: 1200px){
+						&.open>.CaptionCont, 
+						&:focus>.CaptionCont, 
+						&:hover>.CaptionCont{
+							box-shadow: none;
+						}
 					}
 					&>.optWrapper{
 						top: -23px;
@@ -398,8 +408,10 @@
 						position: relative;
 						&>.options li.opt{
 							border-bottom: none;
-							&:hover{				
-								background: rgba(226, 199, 115, 0.2);
+							@media screen and (min-width: 1200px){
+								&:hover{				
+									background: rgba(226, 199, 115, 0.2);
+								}
 							}
 							&.selected{
 								background: #E2C773;
@@ -410,6 +422,10 @@
 			}
 		}
 		&-main{
+			opacity: 0;
+			animation: tadaa 0.5s normal forwards ease-in-out;
+			animation-iteration-count: 1;
+			animation-delay: 0.8s;
 			display: flex;
 			flex-wrap: wrap;
 			justify-content: center;
@@ -459,11 +475,13 @@
 								transition: 0.3s;
 							}
 						}
-						&:hover{
-							svg{
-								transform: scale(1.2);
-								path{
-									fill: #E09B3D;
+						@media screen and (min-width: 1200px){
+							&:hover{
+								svg{
+									transform: scale(1.2);
+									path{
+										fill: #E09B3D;
+									}
 								}
 							}
 						}
@@ -542,6 +560,227 @@
 			font-size: 18px;
 			line-height: 37px;
 			letter-spacing: 0.02em;
+		}
+	}
+}
+
+@include w1024{
+	.catalog{
+		&__title{
+			padding-left: 60px;
+			font-size: 30px;
+			&:before{
+				left: 20px;
+				width: 30px;
+				height: 2px;
+				top: 17px;
+			}
+		}
+		&__subtitle{
+			padding-left: 20px;
+		}
+		&-tags{
+			display: none;
+		}
+		&-filters{
+			position: relative;
+			right: auto;
+			padding-left: 20px;
+		}
+		&-content{
+			margin: 0 auto 40px;
+			&-more{
+				margin-top: 10px;
+			}
+			&-main{
+				margin: 0 -10px;
+				&-item{
+					width: calc(33% - 18px);
+					&-top{
+						&-tags{
+							&__item{
+								display: none;
+							}
+						}
+					}
+					&-bot{
+						&__price{
+							font-size: 20px;
+						}
+					}
+				}
+			}
+		}
+		&-seo{
+			margin: 0 auto 40px;
+			&__title{
+				padding-left: 60px;
+				font-size: 30px;
+				&:before{
+					left: 20px;
+					width: 30px;
+					height: 2px;
+					top: 17px;
+				}
+			}
+			&__text{
+				padding: 0 20px;
+			}
+		}
+	}
+}
+
+@include w768{
+	.catalog{
+		&__title{
+			padding-left: 50px;
+			font-size: 24px;
+			margin-bottom: 20px;
+			padding-right: 20px;
+			&:before{
+				width: 21px;
+				top: 13px;
+			}
+		}
+		&-content{
+			&-main{
+				&-item{
+					padding: 10px;
+					&-top{
+						&-tags{
+							margin-right: 20px;
+							&__item{
+								font-size: 10px;
+								margin-right: 10px;
+							}
+						}
+					}
+					&-bot{
+						&__price{
+							font-size: 14px;
+						}
+						&__location{
+							font-size: 12px;
+						}
+					}
+				}
+			}
+			&-more{
+				width: 149px;
+				height: 35px;
+				font-size: 14px;
+			}
+		}
+		&-seo{
+			&__title{
+				padding-left: 50px;
+				font-size: 24px;
+				margin-bottom: 20px;
+				padding-right: 20px;
+				&:before{
+					width: 21px;
+					top: 13px;
+				}
+			}
+			&__text{
+				font-size: 14px;
+				line-height: 29px;
+			}
+		}
+	}
+}
+
+@include w480{
+	.catalog{
+		&__title{
+			padding-left: 20px;
+			font-size: 18px;
+			&:before{
+				display: none;
+			}
+		}
+		&-filters{
+			&-popup{
+				&-content{
+					flex-direction: column;
+					&-left, 
+					&-right{
+						width: 100%;
+					}
+					&-pair{
+						.irs--sharp{
+							width: 100%;
+						}
+					}
+				}
+			}
+		}
+		&-content{
+			&-top{
+				&__right{
+					top: 0;
+				}
+			}
+			&-more{
+				margin-top: 10px;
+			}
+			&-main{
+				margin: 0 -10px;
+				&-item{
+					width: 100%;
+				}
+			}
+		}
+		&-seo{
+			&__title{
+				padding-left: 20px;
+				font-size: 18px;
+				&:before{
+					display: none;
+				}
+			}
+		}
+	}
+}
+
+@include w320{
+	.catalog{
+		&__title{
+			padding-left: 10px;
+			font-size: 14px;
+		}
+		&__subtitle{
+			font-size: 10px;
+			padding-left: 10px;
+		}
+		&-filters{
+			padding-left: 10px;
+		}
+		&-content{
+			padding: 0 10px;
+			&-top{
+				&__left{
+					font-size: 12px;
+					line-height: 14px;
+				}
+				&__right{
+					> label{
+						font-size: 12px;
+						line-height: 14px;
+					}
+				}
+			}
+		}
+		&-seo{
+			&__title{
+				padding-left: 10px;
+				font-size: 14px;
+			}
+			&__text{
+				font-size: 12px;
+				line-height: 25px;
+				padding: 0 10px;
+			}
 		}
 	}
 }

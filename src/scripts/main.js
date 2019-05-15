@@ -544,7 +544,14 @@ function resizewindow() {
 		$(document).find('.house-features-main-item').css('height', $(document).find('.house-features-main-item').width() * 0.666 + 'px');
 	}
 
-	//
+	if (screen.width > 1023) {
+		$(document).find('.catalog-content-main-item').css('height', $(document).find('.catalog-content-main-item').width() + 40 + 'px');
+	}
+
+	if (screen.width < 1024) {
+		$(document).find('.catalog-content-main-item').css('height', $(document).find('.catalog-content-main-item').width() + 20 + 'px');
+	}
+
 	var div = $('.header-menu');
 	div.removeClass('fadeInDown');
 	div.addClass('fadeOutUp');
