@@ -110,14 +110,18 @@
 					font-size: 18px;
 					color: #FFFFFF;
 					transition: 0.3s;
-					&:hover{
-						color: #000;
-						background: #FFFFFF;
+					@media screen and (min-width: 1200px){
+						&:hover{
+							color: #000;
+							background: #FFFFFF;
+						}
 					}
 				}
 			}
-			&:hover{
-				box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+			@media screen and (min-width: 1200px){
+				&:hover{
+					box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+				}
 			}
 		}
 	}
@@ -177,14 +181,18 @@
 					font-size: 14px;
 					color: #FFFFFF;
 					transition: 0.3s;
-					&:hover{
-						color: #000;
-						background: #FFFFFF;
+					@media screen and (min-width: 1200px){
+						&:hover{
+							color: #000;
+							background: #FFFFFF;
+						}
 					}
 				}
 			}
-			&:hover{
-				box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+			@media screen and (min-width: 1200px){
+				&:hover{
+					box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+				}
 			}
 		}
 	}
@@ -200,9 +208,203 @@
 		margin: 0 auto 100px;
 		transition: 0.3s;
 		cursor: pointer;
-		&:hover{
-			color: #fff;
-			background: #000;
+		@media screen and (min-width: 1200px){
+			&:hover{
+				color: #fff;
+				background: #000;
+			}
+		}
+	}
+}
+
+@include w1024{
+	.news{
+		&__title{
+			padding-left: 40px;
+			font-size: 30px;
+			&:before{
+				left: 0;
+				width: 30px;
+				height: 2px;
+			}
+		}
+		&-main{
+			margin: 0 -10px;
+			&-item{
+				padding: 0 10px 0;
+				&-bot{
+					height: 41px;
+					&__title{
+						font-size: 19px;
+						line-height: 22px;
+					}
+				}
+			}
+		}
+		&-rest{
+			margin: 0 -10px 30px;
+			&-item{
+				padding: 0 10px 10px;
+				margin-bottom: 0;
+				&-info{
+					&-item{
+						margin-right: 20px;
+					}
+				}
+			}
+		}
+		&-more{
+			margin-bottom: 40px;
+		}
+	}
+}
+
+@include w768{
+	.news{
+		&__title{
+			padding-left: 30px;
+			font-size: 24px;
+			&:before{
+				width: 21px;
+			}
+		}
+		&-pag{
+			font-size: 14px;
+		}
+		&-main{
+			&-item{
+				&__img{
+					margin-bottom: 10px;
+				}
+				&-info{
+					margin-bottom: 13px;
+				}
+				&-bot{
+					height: 35px;
+					&__title{
+						font-size: 14px;
+						line-height: 16px;
+					}
+					&__link{
+						flex: 0 0 134px;
+						height: 35px;
+						font-size: 14px;
+					}
+				}
+			}
+		}
+		&-rest{
+			&-item{
+				&-info{
+					justify-content: space-between;
+					&-item{
+						margin-right: 0;
+					}
+				}
+				&-bot{
+					&__title{
+						font-size: 12px;
+						line-height: 14px;
+						margin-bottom: 10px;
+					}
+					&__link{
+						font-size: 14px;
+						width: 100%;
+						height: 35px;
+					}
+				}
+			}
+		}
+		&-more{
+			width: 146px;
+			height: 35px;
+			font-size: 14px;
+			border: 1px solid #000000;
+		}
+	}
+}
+
+@include w480{
+	.news{
+		&__title{
+			padding-left: 0;
+			font-size: 19px;
+			&:before{
+				display: none;
+			}
+		}
+		&-pag{
+			display: none;
+		}
+		&-wrap{
+			margin-bottom: 30px;
+		}
+		&-main{
+			flex-direction: column;
+			margin: 0;
+			&-item{
+				width: 100%;
+				padding: 0;
+				margin: 0 0 20px;
+				&-info{
+					margin-bottom: 10px;
+				}
+				&-bot{
+					height: auto;
+					flex-direction: column;
+					&__link{
+						flex: auto;
+						align-self: flex-start;
+						width: 142.28px;
+						height: 29px;
+						font-size: 14px;
+						margin-top: 10px;
+					}
+				}
+			}
+		}
+		&-rest{
+			flex-direction: column;
+			margin: 0;
+			margin-bottom: 20px;
+			&-item{
+				width: 100%;
+				padding: 0;
+				margin: 0 0 20px;
+				&-info{
+					justify-content: flex-start;
+					margin-bottom: 10px;
+					&-item{
+						margin-right: 40px;
+					}
+				}
+				&-bot{
+					align-items: flex-start;
+					&__title{
+						font-size: 14px;
+						line-height: 16px;
+						margin-bottom: 10px;
+						height: auto;
+						text-align: left;
+					}
+					&__link{
+						width: 142.28px;
+						height: 29px;
+					}
+				}
+			}
+		}
+	}
+}
+
+@include w480{
+	.news{
+		padding: 0 10px;
+		&__title{
+			font-size: 14px;
+		}
+		&__subtitle{
+			font-size: 10px;
 		}
 	}
 }

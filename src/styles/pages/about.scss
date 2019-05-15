@@ -85,3 +85,134 @@
 		}
 	}
 }
+
+@include w1024{
+	.about{
+		&__title{
+			padding-left: 60px;
+			font-size: 30px;
+			margin-bottom: 20px;
+			&:before{
+				left: 20px;
+				width: 30px;
+				height: 2px;
+				top: 17px;
+			}
+		}
+		&__subtitle{
+			padding-left: 20px;
+		}
+		&__banner{
+			margin-bottom: 40px;
+		}
+		&-content{
+			margin: 0 auto 20px;
+			&__subtitle{
+				font-size: 30px;
+				line-height: 32px;
+				margin-bottom: 20px;
+			}
+			> svg{
+				margin-bottom: 20px;
+			}
+			&__text{
+				font-size: 16px;
+				line-height: 33px;
+			}
+		}
+	}
+}
+
+@include w768{
+	.about{
+		&__title{
+			padding-left: 50px;
+			font-size: 24px;
+			margin-bottom: 20px;
+			padding-right: 20px;
+			&:before{
+				width: 21px;
+				top: 13px;
+			}
+		}
+		&__banner{
+			height: 300px;
+		}
+		&-content{
+			&__subtitle{
+				font-size: 24px;
+				line-height: 28px;
+			}
+			&__text{
+				font-size: 14px;
+				line-height: 29px;
+			}
+			&-links{
+				&__item{
+					font-size: 12px;
+				}
+			}
+		}
+	}
+}
+
+@include w480{
+	.about{
+		&__title{
+			padding-left: 20px;
+			font-size: 18px;
+			&:before{
+				display: none;
+			}
+		}
+		&__banner{
+			height: 120px;
+			margin-bottom: 20px;
+		}
+		&-content{
+			width: 100%;
+			padding: 0 20px;
+			&__subtitle{
+				font-size: 19px;
+				line-height: 22px;
+				margin-bottom: 10px;
+			}
+			> svg{
+				margin-bottom: 10px;
+			}
+			&__text{
+				margin-bottom: 20px;
+			}
+			&-links{
+				&__item{
+					font-size: 14px;
+					width: 100%;
+				}
+			}
+		}
+	}
+}
+
+@include w320{
+	.about{
+		&__title{
+			padding-left: 10px;
+			font-size: 14px;
+		}
+		&__subtitle{
+			font-size: 10px;
+			padding-left: 10px;
+		}
+		&-content{
+			padding: 0 10px;
+			&__subtitle{
+				font-size: 14px;
+				line-height: 16px;
+			}
+			&__text{
+				font-size: 12px;
+				line-height: 25px;
+			}
+		}
+	}
+}

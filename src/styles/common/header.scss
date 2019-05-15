@@ -55,6 +55,7 @@
 		color: #1B1B24;
 		.header-top__logo{
 			background: url('../images/logo.svg') center no-repeat;
+			background-size: contain;
 		}
 		.hamburger-inner, .hamburger-inner:after, .hamburger-inner:before{
 			background-color: #000;
@@ -324,6 +325,10 @@
 }
 
 @include w1024{
+	.breadcrumbs{
+		margin-bottom: 40px;
+		margin-top: 15px;
+	}
 	.header{
 		&-top{
 			&-info,
@@ -378,7 +383,8 @@
 
 @include w480{
 	.breadcrumbs{
-		margin-top: 10px;
+		margin-top: -5px;
+		margin-bottom: 30px;
 	}
 	.header{
 		&-menu{
@@ -422,7 +428,11 @@
 
 @include w320{
 	.breadcrumbs{
+		margin-top: 5px;
 		padding: 0 10px;
+		&__link{
+			font-size: 10px;
+		}
 		&-abs{
 			top: 80px;
 		}
