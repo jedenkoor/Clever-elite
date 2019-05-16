@@ -265,10 +265,6 @@ $(document).ready(function () {
 		$('.catalog-filters-popup-content-pair .SumoSelect .opt:first-child').addClass('selected');
 	});
 	
-	$('.catalog-filters-filter').fancybox({
-		touch: false
-	});
-
 	var mainFormContainers = $('.main-form .main-form-content-right-tabs-tab');
 	mainFormContainers.hide().filter(':first').fadeIn().attr('style', 'visibility: visible; display: block;');
 	$('.main-form .main-form-content-right-tabs-navigation label').filter(':first').addClass('selected');
@@ -423,6 +419,20 @@ $(document).on('click', function (e) {
 	}
 });
 
+$(document).on('click', '.catalog-filters-filter', function (e) {
+	if(screen.width < 768){
+		e.preventDefault();
+		$(document).find('.catalog-filters-popup').addClass('active fadeInLeft animated');
+		$('body').attr('style', 'position: fixed; width: 100%; height: 100%');
+		$(document).find('.catalog-filters-popup').removeClass('fadeOutLeft');
+	}
+});
+$(document).on('click', '.catalog-filters-popup__close', function (e) {
+	$('body').attr('style', '');
+	$(document).find('.catalog-filters-popup').removeClass('fadeInLeft');
+	$(document).find('.catalog-filters-popup').addClass('fadeOutLeft');
+});
+
 $(document).on('click', '.house-tabs-tab-right-slider-nav-item', function (e) {
 	$(this).siblings('.house-tabs-tab-right-slider-nav-item').removeClass('selected');
 	$(this).closest('.house-tabs-tab-right-slider-nav').siblings('.house-tabs-tab-right-slider-inn').slick('slickGoTo', $(this).index());
@@ -542,6 +552,16 @@ function resizewindow() {
 
 	if (screen.width < 768) {
 		$(document).find('.house-features-main-item').css('height', $(document).find('.house-features-main-item').width() * 0.666 + 'px');
+		$(document).find('.catalog-filters-filter').removeAttr('data-fancybox');
+		$(document).find('.catalog-filters-filter').removeAttr('data-src');
+		$(document).find('.catalog-filters-filter').removeAttr('data-modal');
+		$(document).find('.catalog-filters-popup').removeAttr('style');
+	} else {
+		$(document).find('.catalog-filters-filter').attr('data-fancybox', '');
+		$(document).find('.catalog-filters-filter').attr('data-src', '#popup-filter');
+		$(document).find('.catalog-filters-filter').attr('data-modal', 'true');
+		$(document).find('.catalog-filters-popup').attr('style', 'display: none;');
+		$(document).find('.catalog-filters-popup').removeClass('active fadeInDown fadeOutUp animated')
 	}
 
 	if (screen.width > 1023) {
