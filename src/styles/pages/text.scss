@@ -9,3 +9,14 @@
 		margin-bottom: 100px;
 	}
 }
+
+@include w768{
+	.text{
+		&__title{
+			margin-bottom: 15px;
+		}
+		&-content{
+			margin-bottom: 40px;
+		}
+	}
+}
