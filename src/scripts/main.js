@@ -1,14 +1,18 @@
 $(document).ready(function () {
 
-	if(document.title == 'Главная' || document.title == 'Карта'){
+	if(document.title == 'Главная' || document.title == 'Карта' || document.title == '404' || document.title == '505'){
 		$(document).find('.breadcrumbs').attr('style', 'display: none;');
+	}
+	if(document.title == '505'){
+		$(document).find('.header').attr('style', 'display: none;');
+		$(document).find('.footer').attr('style', 'display: none;');
 	}
 	if(document.title == 'Дом'){
 		$(document).find('.header').addClass('white');
 		$(document).find('.house-banner').addClass('white');
 		$(document).find('.breadcrumbs').addClass('breadcrumbs-abs');
 	}
-	if(document.title == 'Новости' || document.title == 'Карта' || document.title == 'Избранное' || document.title == 'Текстовая страница'){
+	if(document.title == 'Новости' || document.title == 'Карта' || document.title == 'Избранное' || document.title == 'Текстовая страница' || document.title == '404' || document.title == '505'){
 		$(document).find('.main-form').attr('style', 'display: none;');
 	}
 	if(document.title == 'О компании'){
