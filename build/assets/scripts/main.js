@@ -409,7 +409,7 @@ $(document).on('click', function (e) {
 	if ($('.header-top-menu').is(e.target) || $('.header-top-menu button').is(e.target) || $('.header-top-menu span').is(e.target)) {
 		return false;
 	}
-	if ( div.hasClass('fadeInDown') && !div.is(e.target) && div.has(e.target).length === 0) {
+	if ( div.hasClass('fadeInDown') && !div.is(e.target) && div.has(e.target).length === 0 && !$('.fancybox-container').is(e.target) && $('.fancybox-container').has(e.target).length === 0) {
 		if ( $('.header').hasClass('white') ) {
 			$(document).find('.header').removeClass('white-menu');
 		}
