@@ -572,10 +572,10 @@ function resizewindow() {
 		$(document).find('.catalog-content-main-item').css('height', $(document).find('.catalog-content-main-item').width() + 20 + 'px');
 	}
 
-	var div = $('.header-menu');
+	/*var div = $('.header-menu');
 	div.removeClass('fadeInDown');
 	div.addClass('fadeOutUp');
-	$(document).find('.hamburger').removeClass('is-active');
+	$(document).find('.hamburger').removeClass('is-active');*/
 
 	let newsMainImages = $(document).find('.news-main-item__img')
 	for (let i = 0; i < newsMainImages.length; i++) {
