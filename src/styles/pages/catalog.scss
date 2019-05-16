@@ -641,11 +641,11 @@
 }
 
 @include w768{
-	.fancybox-active{
-		position: fixed;
-		width: 100%;
-		height: 100%;
-	}
+	// .fancybox-active{
+	// 	position: fixed;
+	// 	width: 100%;
+	// 	height: 100%;
+	// }
 	.catalog{
 		&__title{
 			padding-left: 50px;
