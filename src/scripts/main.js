@@ -1,5 +1,18 @@
-$(document).ready(function () {
+$(window).on('load', function (){
+	$("body").css("opacity", "1");
+	$("body").css("display", "none");
+	$("body").fadeIn(1500);
+	$("a").click(function(event){
+		event.preventDefault();
+		linkLocation = this.href;
+		$("body").fadeOut(1000, redirectPage);
+	});
+	function redirectPage() {
+		window.location = linkLocation;
+	}
+});
 
+$(document).ready(function () {
 	if(document.title == 'Главная' || document.title == 'Карта' || document.title == '404' || document.title == '505'){
 		$(document).find('.breadcrumbs').attr('style', 'display: none;');
 	}
@@ -18,6 +31,29 @@ $(document).ready(function () {
 	if(document.title == 'О компании'){
 		$(document).find('.main-form-content-left img').attr('style', 'display: none;');
 		$(document).find('.main-form-content-left-wrap').attr('style', 'display: block;');
+	}
+
+	if( $(document).find('#lottie').length != 0) {
+		var select = function(s) {
+			if( $(document).find(s).length != 0) {
+				return document.querySelector(s);
+			}
+		},
+		animationWindow = select('#lottie'),    
+			animData = {
+			wrapper: animationWindow,
+			animType: 'svg',
+			loop: true,
+			prerender: true,
+			autoplay: true,
+			rendererSettings: {
+                preserveAspectRatio:'none'
+              },
+			path: 'assets/scripts/lottie/data.json'
+		}, anim;
+	
+		anim = bodymovin.loadAnimation(animData);
+		anim.setSpeed(1);
 	}
 
 	$(document).find('.main-banner-slider').slick({
@@ -545,7 +581,7 @@ function resizewindow() {
 			placeholder: 'Фильтр'
 		});
 	} else {
-		if($('.main-object-filter select').length != 0){
+		if($('.main-object-filter .SumoSelect').length != 0){
 			$('.main-object-filter select')[0].sumo.unload();
 		}
 	}
