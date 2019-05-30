@@ -1,17 +1,3 @@
-$(window).on('load', function (){
-	$("body").css("opacity", "1");
-	$("body").css("display", "none");
-	$("body").fadeIn(1500);
-	$("a").click(function(event){
-		event.preventDefault();
-		linkLocation = this.href;
-		$("body").fadeOut(1000, redirectPage);
-	});
-	function redirectPage() {
-		window.location = linkLocation;
-	}
-});
-
 $(document).ready(function () {
 	if(document.title == 'Главная' || document.title == 'Карта' || document.title == '404' || document.title == '505'){
 		$(document).find('.breadcrumbs').attr('style', 'display: none;');
